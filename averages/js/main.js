@@ -15,7 +15,6 @@ const makeNewInput = () => {
   } else {
     const input = document.createElement("input")
     input.setAttribute("type", "number")
-    input.setAttribute("onblur", "makeNewInput()")
     input.setAttribute("id", `input${randomNumber}`)
     input.classList.add("number")
     const form = document.querySelector("form")
