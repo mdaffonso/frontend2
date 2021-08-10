@@ -1,3 +1,5 @@
+let timer
+
 const findEmptyInput = () => {
   const emptyInputs = []
   const emptyInputNodes = document.querySelectorAll("input")
@@ -7,12 +9,14 @@ const findEmptyInput = () => {
 
 const makeNewInput = () => {
   const firstEmptyInput = findEmptyInput()
+  const randomNumber = Math.floor(Math.random() * 100000)
   if(firstEmptyInput) {
     firstEmptyInput.focus()
   } else {
     const input = document.createElement("input")
     input.setAttribute("type", "number")
     input.setAttribute("onblur", "makeNewInput()")
+    input.setAttribute("id", `input${randomNumber}`)
     input.classList.add("number")
     const form = document.querySelector("form")
     const button = document.querySelector("button")
@@ -21,11 +25,14 @@ const makeNewInput = () => {
   }
 }
 
-window.addEventListener("keydown", e => {
-  if(e.key === " " || e.key === "Tab") {
+window.addEventListener("keyup", e => {
+  if(e.key === "Tab") {
     e.preventDefault()
-    makeNewInput()
   }
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    makeNewInput()
+  }, 350);
 })
 
 
