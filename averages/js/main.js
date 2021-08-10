@@ -1,13 +1,3 @@
-const makeNewInput = () => {
-  const input = document.createElement("input")
-  input.setAttribute("type", "number")
-  input.classList.add("number")
-  const form = document.querySelector("form")
-  const button = document.querySelector("button")
-  const newInput = form.insertBefore(input, button)
-  newInput.focus()
-}
-
 const findEmptyInput = () => {
   const emptyInputs = []
   const emptyInputNodes = document.querySelectorAll("input")
@@ -15,17 +5,29 @@ const findEmptyInput = () => {
   return emptyInputs[0]
 }
 
+const makeNewInput = () => {
+  const firstEmptyInput = findEmptyInput()
+  if(firstEmptyInput) {
+    firstEmptyInput.focus()
+  } else {
+    const input = document.createElement("input")
+    input.setAttribute("type", "number")
+    input.setAttribute("onblur", "makeNewInput()")
+    input.classList.add("number")
+    const form = document.querySelector("form")
+    const button = document.querySelector("button")
+    const newInput = form.insertBefore(input, button)
+    newInput.focus()
+  }
+}
+
 window.addEventListener("keydown", e => {
   if(e.key === " " || e.key === "Tab") {
     e.preventDefault()
-    const firstEmptyInput = findEmptyInput()
-    if(firstEmptyInput) {
-      firstEmptyInput.focus()
-    } else {
-      makeNewInput()
-    }
+    makeNewInput()
   }
 })
+
 
 document.querySelector("form").addEventListener("submit", e => {
   e.preventDefault()
