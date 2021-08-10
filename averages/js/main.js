@@ -25,13 +25,18 @@ const makeNewInput = () => {
 }
 
 window.addEventListener("keyup", e => {
+  const digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
   if(e.key === "Tab") {
     e.preventDefault()
   }
-  clearTimeout(timer);
-  timer = setTimeout(() => {
-    makeNewInput()
-  }, 350);
+
+  if(digits.includes(e.key)) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      makeNewInput()
+    }, 350);
+  }
 })
 
 
