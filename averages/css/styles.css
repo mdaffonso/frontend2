@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(27, 19, 19);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  min-height: 75vh;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color:rgb(167, 167, 167);
+  padding: 0 1rem;
+  text-align: center;
+}
+
+h1.average {
+  font-size: 3rem;
+  color:rgb(13, 145, 185);
+}
+
+h3 {
+  color:rgb(112, 111, 98);
+  line-height: 1.2em;
+}
+
+form {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button, a {
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 1rem;
+  color: rgb(13, 145, 185);
+  margin: 1rem 0;
+}
+
+a {
+  color: rgb(112, 111, 98);
+  opacity: 0;
+  font-size: 1rem;
+  text-decoration: underline;
+}
+
+.number {
+  max-width: 10rem;
+  margin: 0.25rem 0;
+  padding: 0.5rem;
+  background:rgb(59, 59, 59);
+  border: none;
+  color: rgb(167, 167, 167);
+  text-align: center;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  transition: box-shadow 250ms ease-in-out;
+}
+
+.number:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.15rem rgb(27, 19, 19),
+    0 0 0 0.3rem rgb(4, 105, 136);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.down-out {
+  animation: down-out 500ms cubic-bezier(.54,-0.12,.97,.75) forwards;
+}
+
+.down-in {
+  animation: down-in 500ms cubic-bezier(.18,1.31,.8,1.42) forwards;
+}
+
+@keyframes down-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+}
+
+@keyframes down-in {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
