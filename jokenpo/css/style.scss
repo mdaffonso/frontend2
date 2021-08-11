@@ -16,6 +16,7 @@ body {
   align-items: center;
   margin: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 0.8rem;
 }
 
 #options {
@@ -71,6 +72,7 @@ body {
     align-items: center;
     position: relative;
     transition: opacity 300ms ease-in-out;
+    gap: 1.5rem;
 
     h1 {
       width: 100%;
@@ -87,8 +89,9 @@ body {
 
     .result-images {
       display: flex;
-      flex-flow: column;
+      flex-flow: column-reverse;
       position: relative;
+      padding: 1rem 0;
 
       @media (min-width: 700px) {
         flex-flow: row;
@@ -97,33 +100,47 @@ body {
       &::before {
         content: "VOCÊ";
         position: absolute;
-        top: 50%;
-        left: 0;
         font-size: 1.5rem;
-        padding: 1em;
+        padding: 0.5em;
         background: black;
         color: white;
         font-weight: 600;
-        transform: translate(-100%, -50%) rotate(-7deg);
+        top: 92%;
+        left: 0;
+        transform: rotate(7deg);
+
+        @media (min-width: 700px) {
+          padding: 1em;
+          top: 50%;
+          left: 0;
+          transform: translate(-100%, -50%) rotate(-7deg);
+        }
       }
   
       &::after {
         content: "BOT";
         position: absolute;
-        top: 50%;
-        left: 100%;
         font-size: 1.5rem;
-        padding: 1em;
+        padding: 0.5em;
         background: black;
         color: white;
         font-weight: 600;
-        transform: translate(0, -50%) rotate(-7deg);
+        top: -7%;
+        right: 0;
+        transform: rotate(7deg);
+
+        @media (min-width: 700px) {
+          padding: 1em;
+          top: 50%;
+          right: 0;
+          transform: translate(100%, -50%) rotate(-7deg);
+        }
       }
   
       img {
         max-width: 100px;
         height: auto;
-        margin: 2rem;
+        margin: 1.2rem;
       }
     }
 

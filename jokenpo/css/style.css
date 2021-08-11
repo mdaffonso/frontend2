@@ -24,6 +24,7 @@ body {
           align-items: center;
   margin: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 0.8rem;
 }
 
 #options {
@@ -113,6 +114,7 @@ body {
   position: relative;
   -webkit-transition: opacity 300ms ease-in-out;
   transition: opacity 300ms ease-in-out;
+  gap: 1.5rem;
 }
 
 #options .results h1 {
@@ -133,10 +135,11 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: column-reverse;
+          flex-flow: column-reverse;
   position: relative;
+  padding: 1rem 0;
 }
 
 @media (min-width: 700px) {
@@ -151,35 +154,55 @@ body {
 #options .results .result-images::before {
   content: "VOCÊ";
   position: absolute;
-  top: 50%;
-  left: 0;
   font-size: 1.5rem;
-  padding: 1em;
+  padding: 0.5em;
   background: black;
   color: white;
   font-weight: 600;
-  -webkit-transform: translate(-100%, -50%) rotate(-7deg);
-          transform: translate(-100%, -50%) rotate(-7deg);
+  top: 92%;
+  left: 0;
+  -webkit-transform: rotate(7deg);
+          transform: rotate(7deg);
+}
+
+@media (min-width: 700px) {
+  #options .results .result-images::before {
+    padding: 1em;
+    top: 50%;
+    left: 0;
+    -webkit-transform: translate(-100%, -50%) rotate(-7deg);
+            transform: translate(-100%, -50%) rotate(-7deg);
+  }
 }
 
 #options .results .result-images::after {
   content: "BOT";
   position: absolute;
-  top: 50%;
-  left: 100%;
   font-size: 1.5rem;
-  padding: 1em;
+  padding: 0.5em;
   background: black;
   color: white;
   font-weight: 600;
-  -webkit-transform: translate(0, -50%) rotate(-7deg);
-          transform: translate(0, -50%) rotate(-7deg);
+  top: -7%;
+  right: 0;
+  -webkit-transform: rotate(7deg);
+          transform: rotate(7deg);
+}
+
+@media (min-width: 700px) {
+  #options .results .result-images::after {
+    padding: 1em;
+    top: 50%;
+    right: 0;
+    -webkit-transform: translate(100%, -50%) rotate(-7deg);
+            transform: translate(100%, -50%) rotate(-7deg);
+  }
 }
 
 #options .results .result-images img {
   max-width: 100px;
   height: auto;
-  margin: 2rem;
+  margin: 1.2rem;
 }
 
 #options .results .score {
