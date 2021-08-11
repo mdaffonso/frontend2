@@ -22,7 +22,7 @@ body {
 #options {
   display: flex;
   flex-flow: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   position: absolute;
   top: 0;
@@ -32,6 +32,7 @@ body {
 
   @media (min-width: 700px) {
     flex-flow: row;
+    justify-content: center;
   }
 
   button {
@@ -145,8 +146,8 @@ body {
     }
 
     .score {
-      display: flex;
-      flex-flow: row;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       position: relative;
 
       h2 {
