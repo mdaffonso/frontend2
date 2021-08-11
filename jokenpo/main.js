@@ -70,30 +70,31 @@ const makeAiSelection = () => {
 const renderOptions = () => {
   const rockButton = document.createElement("button")
   rockButton.id = "rock"
-  optionsContainer.appendChild(rockButton)
-
+  
   const rockImage = document.createElement("img")
   rockImage.setAttribute("src", "img/ico-rock.png")
   rockImage.setAttribute("alt", "pedra")
   rockButton.appendChild(rockImage)
-
+  
   const paperButton = document.createElement("button")
   paperButton.id = "paper"
-  optionsContainer.appendChild(paperButton)
-
+  
   const paperImage = document.createElement("img")
   paperImage.setAttribute("src", "img/ico-paper.png")
   paperImage.setAttribute("alt", "papel")
   paperButton.appendChild(paperImage)
-
+  
   const scissorButton = document.createElement("button")
   scissorButton.id = "scissor"
-  optionsContainer.appendChild(scissorButton)
-
+  
   const scissorImage = document.createElement("img")
   scissorImage.setAttribute("src", "img/ico-scissor.png")
   scissorImage.setAttribute("alt", "tesoura")
   scissorButton.appendChild(scissorImage)
+  
+  optionsContainer.appendChild(rockButton)
+  optionsContainer.appendChild(paperButton)
+  optionsContainer.appendChild(scissorButton)
 }
 
 const showResults = () => {

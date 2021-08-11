@@ -67,10 +67,10 @@ body {
   margin: 1rem;
   cursor: pointer;
   border-radius: 50%;
-  -webkit-transition-property: background, opacity, -webkit-transform;
-  transition-property: background, opacity, -webkit-transform;
-  transition-property: transform, background, opacity;
-  transition-property: transform, background, opacity, -webkit-transform;
+  -webkit-transition-property: opacity, -webkit-transform, -webkit-box-shadow;
+  transition-property: opacity, -webkit-transform, -webkit-box-shadow;
+  transition-property: transform, box-shadow, opacity;
+  transition-property: transform, box-shadow, opacity, -webkit-transform, -webkit-box-shadow;
   -webkit-transition: 250ms ease-in-out;
   transition: 250ms ease-in-out;
 }
@@ -82,7 +82,8 @@ body {
 }
 
 #options button:focus {
-  background: var(--main-color);
+  -webkit-box-shadow: 0 0 0 0.5rem black;
+          box-shadow: 0 0 0 0.5rem black;
 }
 
 #options button img {
@@ -126,11 +127,53 @@ body {
 }
 
 #options .results .replay {
-  background: var(--main-dark);
-  color: white;
+  background: transparent;
+  color: var(--main-dark);
+  border: 0.25rem solid var(--main-dark);
   border-radius: 0;
   font-size: 1.2rem;
+  font-weight: 600;
   padding: 1rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+#options .results .replay:focus, #options .results .replay:hover {
+  -webkit-transform: none;
+          transform: none;
+  color: white;
+  border-color: var(--main-dark);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#options .results .replay:focus::before, #options .results .replay:hover::before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#options .results .replay:focus {
+  -webkit-box-shadow: 0 0 0 0.25rem var(--main-bg), 0 0 0 0.5rem black;
+          box-shadow: 0 0 0 0.25rem var(--main-bg), 0 0 0 0.5rem black;
+}
+
+#options .results .replay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--main-dark);
+  z-index: -1;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+  transition: -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
 }
 
 #options .results .result-images {
