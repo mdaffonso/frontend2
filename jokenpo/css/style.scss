@@ -1,0 +1,157 @@
+:root {
+  --main-bg: rgb(231, 231, 231);
+  --main-color: #f39e9e;
+  --main-dark: #cf1313;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--main-bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#options {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  @media (min-width: 700px) {
+    flex-flow: row;
+  }
+
+  button {
+    border: none;
+    background: transparent;
+    padding: 2rem;
+    margin: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition-property: transform, background, opacity;
+    transition: 250ms ease-in-out;
+    
+    &:hover, &:focus, &:active {
+      transform: scale(1.075);
+      outline: none;
+    }
+
+    &:focus {
+      background: var(--main-color);
+    }
+
+    img {
+      max-width: 100px;
+      height: auto;
+    }
+
+    &.selected {
+      transform: scale(1.075);
+      transition: transform 500ms ease-in-out;
+      pointer-events: none;
+    }
+  }
+
+  .results {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: opacity 300ms ease-in-out;
+
+    h1 {
+      width: 100%;
+      text-align: center;
+    }
+
+    .replay {
+      background: var(--main-dark);
+      color: white;
+      border-radius: 0;
+      font-size: 1.2rem;
+      padding: 1rem 1.5rem;
+    }
+
+    .result-images {
+      display: flex;
+      flex-flow: column;
+      position: relative;
+
+      @media (min-width: 700px) {
+        flex-flow: row;
+      }
+
+      &::before {
+        content: "VOCÊ";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        font-size: 1.5rem;
+        padding: 1em;
+        background: black;
+        color: white;
+        font-weight: 600;
+        transform: translate(-100%, -50%) rotate(-7deg);
+      }
+  
+      &::after {
+        content: "BOT";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        font-size: 1.5rem;
+        padding: 1em;
+        background: black;
+        color: white;
+        font-weight: 600;
+        transform: translate(0, -50%) rotate(-7deg);
+      }
+  
+      img {
+        max-width: 100px;
+        height: auto;
+        margin: 2rem;
+      }
+    }
+
+    .score {
+      display: flex;
+      flex-flow: row;
+      position: relative;
+
+      h2 {
+        font-size: 1.5rem;
+        margin: 2rem;
+      }
+
+      &::before {
+        content: '×';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 1.5rem;
+        font-weight: 600;
+        transform: translate(-50%, -50%);
+        color: var(--main-dark);
+      }
+    }
+  }
+}
+
+.remove {
+  opacity: 0;
+  pointer-events: none;
+}

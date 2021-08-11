@@ -1,0 +1,217 @@
+@charset "UTF-8";
+:root {
+  --main-bg: rgb(231, 231, 231);
+  --main-color: #f39e9e;
+  --main-dark: #cf1313;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: var(--main-bg);
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media (min-width: 700px) {
+  #options {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+  }
+}
+
+#options button {
+  border: none;
+  background: transparent;
+  padding: 2rem;
+  margin: 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-transition-property: background, opacity, -webkit-transform;
+  transition-property: background, opacity, -webkit-transform;
+  transition-property: transform, background, opacity;
+  transition-property: transform, background, opacity, -webkit-transform;
+  -webkit-transition: 250ms ease-in-out;
+  transition: 250ms ease-in-out;
+}
+
+#options button:hover, #options button:focus, #options button:active {
+  -webkit-transform: scale(1.075);
+          transform: scale(1.075);
+  outline: none;
+}
+
+#options button:focus {
+  background: var(--main-color);
+}
+
+#options button img {
+  max-width: 100px;
+  height: auto;
+}
+
+#options button.selected {
+  -webkit-transform: scale(1.075);
+          transform: scale(1.075);
+  -webkit-transition: -webkit-transform 500ms ease-in-out;
+  transition: -webkit-transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out;
+  transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+  pointer-events: none;
+}
+
+#options .results {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  -webkit-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+}
+
+#options .results h1 {
+  width: 100%;
+  text-align: center;
+}
+
+#options .results .replay {
+  background: var(--main-dark);
+  color: white;
+  border-radius: 0;
+  font-size: 1.2rem;
+  padding: 1rem 1.5rem;
+}
+
+#options .results .result-images {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  position: relative;
+}
+
+@media (min-width: 700px) {
+  #options .results .result-images {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+  }
+}
+
+#options .results .result-images::before {
+  content: "VOCÊ";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  font-size: 1.5rem;
+  padding: 1em;
+  background: black;
+  color: white;
+  font-weight: 600;
+  -webkit-transform: translate(-100%, -50%) rotate(-7deg);
+          transform: translate(-100%, -50%) rotate(-7deg);
+}
+
+#options .results .result-images::after {
+  content: "BOT";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  font-size: 1.5rem;
+  padding: 1em;
+  background: black;
+  color: white;
+  font-weight: 600;
+  -webkit-transform: translate(0, -50%) rotate(-7deg);
+          transform: translate(0, -50%) rotate(-7deg);
+}
+
+#options .results .result-images img {
+  max-width: 100px;
+  height: auto;
+  margin: 2rem;
+}
+
+#options .results .score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  position: relative;
+}
+
+#options .results .score h2 {
+  font-size: 1.5rem;
+  margin: 2rem;
+}
+
+#options .results .score::before {
+  content: '×';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 1.5rem;
+  font-weight: 600;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: var(--main-dark);
+}
+
+.remove {
+  opacity: 0;
+  pointer-events: none;
+}
+/*# sourceMappingURL=style.css.map */
