@@ -99,7 +99,6 @@ const renderOptions = () => {
 const showResults = () => {
   const container = document.createElement("div")
   container.classList.add("results")
-  optionsContainer.appendChild(container)
 
   const title = document.createElement("h1")
   const titleTextNode = document.createTextNode(resultPossibilities.find(v => v.result === currentResult).text)
@@ -139,6 +138,8 @@ const showResults = () => {
   const replayButtonText = document.createTextNode("jogar novamente")
   replayButton.appendChild(replayButtonText)
   container.appendChild(replayButton)
+
+  optionsContainer.appendChild(container)
 
   replayButton.addEventListener("click", () => {
     fadeResults()
