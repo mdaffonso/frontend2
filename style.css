@@ -40,7 +40,7 @@ header h1 {
   max-width: 12ch;
   font-size: 3rem;
   text-transform: uppercase;
-  color: rgb(255, 177, 22);
+  color: rgb(255, 233, 154);
   padding: 2em 0;
   line-height: 1.5em;
   position: relative;
@@ -153,6 +153,6 @@ main ul li {
     left: -1rem;
     width: 5px;
     height: 76.5%;
-    background: rgb(175, 26, 0);
+    background: rgb(183, 86, 17);
   }
 }
