@@ -3,8 +3,7 @@ let selection = null
 let aiSelection = null
 let currentResult = null
 
-const resultPossibilities = [
-  {
+const resultPossibilities = [{
     result: "win",
     text: "Ganhou! 🤘"
   },
@@ -20,8 +19,7 @@ const resultPossibilities = [
   }
 ]
 
-const possibilities = [
-  {
+const possibilities = [{
     option: "rock",
     beats: "scissor",
     beatenBy: "paper"
@@ -41,16 +39,9 @@ const possibilities = [
 const buttons = document.querySelectorAll("#options button")
 const optionsContainer = document.querySelector("#options")
 
-const disableButtons = (buttons) => {
-  buttons.forEach(element => {
-    element.disabled = true
-    element.classList.add("remove")
-    setTimeout(() => element.remove(), 300)
-  })
-}
 
 const play = () => {
-  switch(true) {
+  switch (true) {
     case selection.option === aiSelection.option:
       return "tie"
     case selection.option === aiSelection.beats:
@@ -67,31 +58,39 @@ const makeAiSelection = () => {
   return possibilities[randomPick]
 }
 
+const disableButtons = (buttons) => {
+  buttons.forEach(element => {
+    element.disabled = true
+    element.classList.add("remove")
+    setTimeout(() => element.remove(), 300)
+  })
+}
+
 const renderOptions = () => {
   const rockButton = document.createElement("button")
   rockButton.id = "rock"
-  
+
   const rockImage = document.createElement("img")
   rockImage.setAttribute("src", "img/ico-rock.png")
   rockImage.setAttribute("alt", "pedra")
   rockButton.appendChild(rockImage)
-  
+
   const paperButton = document.createElement("button")
   paperButton.id = "paper"
-  
+
   const paperImage = document.createElement("img")
   paperImage.setAttribute("src", "img/ico-paper.png")
   paperImage.setAttribute("alt", "papel")
   paperButton.appendChild(paperImage)
-  
+
   const scissorButton = document.createElement("button")
   scissorButton.id = "scissor"
-  
+
   const scissorImage = document.createElement("img")
   scissorImage.setAttribute("src", "img/ico-scissor.png")
   scissorImage.setAttribute("alt", "tesoura")
   scissorButton.appendChild(scissorImage)
-  
+
   optionsContainer.appendChild(rockButton)
   optionsContainer.appendChild(paperButton)
   optionsContainer.appendChild(scissorButton)

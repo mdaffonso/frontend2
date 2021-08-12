@@ -1,4 +1,5 @@
 let timer
+let sent = false
 
 const findEmptyInput = () => {
   const emptyInputs = []
@@ -61,38 +62,41 @@ document.querySelector("form").addEventListener("submit", e => {
   form.classList.remove("down-in")
   form.classList.add("down-out")
 
-  setTimeout(() =>{
-    form.remove()
-
-    const messageHeader = document.createElement("h2")
-    messageHeader.classList.add("down-in")
-
-    const messageNumber = document.createElement("h1")
-    messageNumber.classList.add("down-in", "average")
-
-    const messageLower = document.createElement("h3")
-    messageLower.classList.add("down-in")
-
-    body.appendChild(messageHeader)
-    body.appendChild(messageNumber)
-    body.appendChild(messageLower)
-
-    const avgText = document.createTextNode(`Sua média é`)
-    const avgNumber = document.createTextNode(avg.toFixed(2))
-    const messageNode = document.createTextNode(message)
-    
-    messageHeader.appendChild(avgText)
-    messageNumber.appendChild(avgNumber)
-    messageLower.appendChild(messageNode)
-
-    const newAverage = document.createElement("a")
-    newAverage.setAttribute("href", "./")
-    const newAverageText = document.createTextNode("calcular outra média")
-    newAverage.appendChild(newAverageText)
-    body.appendChild(newAverage)
-    
-    setTimeout(() => {
-      newAverage.classList.add("down-in")
-    }, 1000)
-  }, 500)
+  if(!sent) {
+    setTimeout(() =>{
+      form.remove()
+  
+      const messageHeader = document.createElement("h2")
+      messageHeader.classList.add("down-in")
+  
+      const messageNumber = document.createElement("h1")
+      messageNumber.classList.add("down-in", "average")
+  
+      const messageLower = document.createElement("h3")
+      messageLower.classList.add("down-in")
+  
+      body.appendChild(messageHeader)
+      body.appendChild(messageNumber)
+      body.appendChild(messageLower)
+  
+      const avgText = document.createTextNode(`Sua média é`)
+      const avgNumber = document.createTextNode(avg.toFixed(2))
+      const messageNode = document.createTextNode(message)
+      
+      messageHeader.appendChild(avgText)
+      messageNumber.appendChild(avgNumber)
+      messageLower.appendChild(messageNode)
+  
+      const newAverage = document.createElement("a")
+      newAverage.setAttribute("href", "./")
+      const newAverageText = document.createTextNode("calcular outra média")
+      newAverage.appendChild(newAverageText)
+      body.appendChild(newAverage)
+      
+      setTimeout(() => {
+        newAverage.classList.add("down-in")
+      }, 1000)
+    }, 500)
+  }
+  sent = true
 })
