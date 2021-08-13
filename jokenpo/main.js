@@ -21,18 +21,18 @@ const resultPossibilities = [{
 
 const possibilities = [{
     option: "rock",
-    beats: "scissor",
+    beats: "scissors",
     beatenBy: "paper"
   },
   {
-    option: "scissor",
+    option: "scissors",
     beats: "paper",
     beatenBy: "rock"
   },
   {
     option: "paper",
     beats: "rock",
-    beatenBy: "scissor"
+    beatenBy: "scissors"
   },
 ]
 
@@ -83,17 +83,17 @@ const renderOptions = () => {
   paperImage.setAttribute("alt", "papel")
   paperButton.appendChild(paperImage)
 
-  const scissorButton = document.createElement("button")
-  scissorButton.id = "scissor"
+  const scissorsButton = document.createElement("button")
+  scissorsButton.id = "scissors"
 
-  const scissorImage = document.createElement("img")
-  scissorImage.setAttribute("src", "img/ico-scissor.png")
-  scissorImage.setAttribute("alt", "tesoura")
-  scissorButton.appendChild(scissorImage)
+  const scissorsImage = document.createElement("img")
+  scissorsImage.setAttribute("src", "img/ico-scissors.png")
+  scissorsImage.setAttribute("alt", "tesoura")
+  scissorsButton.appendChild(scissorsImage)
 
   optionsContainer.appendChild(rockButton)
   optionsContainer.appendChild(paperButton)
-  optionsContainer.appendChild(scissorButton)
+  optionsContainer.appendChild(scissorsButton)
 }
 
 const showResults = () => {
