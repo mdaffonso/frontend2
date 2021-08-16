@@ -12,7 +12,6 @@
 
 body {
   background: var(--main-bg);
-  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,6 +27,7 @@ body {
 }
 
 #options {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,9 +35,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -50,6 +50,7 @@ body {
 
 @media (min-width: 700px) {
   #options {
+    height: unset;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-flow: row;
@@ -87,7 +88,7 @@ body {
 }
 
 #options button img {
-  max-width: 100px;
+  max-width: clamp(70px, 7vw, 125px);
   height: auto;
 }
 
@@ -102,6 +103,7 @@ body {
 }
 
 #options .results {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -109,9 +111,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -119,6 +121,12 @@ body {
   -webkit-transition: opacity 300ms ease-in-out;
   transition: opacity 300ms ease-in-out;
   gap: 1.5rem;
+}
+
+@media (min-width: 700px) {
+  #options .results {
+    height: unset;
+  }
 }
 
 #options .results h1 {
@@ -136,6 +144,7 @@ body {
   padding: 1rem 1.5rem;
   position: relative;
   z-index: 1;
+  margin: 0 0 1rem 0;
 }
 
 #options .results .replay:focus, #options .results .replay:hover {
@@ -205,7 +214,7 @@ body {
   background: black;
   color: white;
   font-weight: 600;
-  top: 92%;
+  top: 85%;
   left: 0;
   -webkit-transform: rotate(7deg);
           transform: rotate(7deg);
@@ -229,7 +238,7 @@ body {
   background: black;
   color: white;
   font-weight: 600;
-  top: -7%;
+  top: -8%;
   right: 0;
   -webkit-transform: rotate(7deg);
           transform: rotate(7deg);
@@ -246,7 +255,7 @@ body {
 }
 
 #options .results .result-images img {
-  max-width: 100px;
+  max-width: clamp(50px, 5vw, 125px);
   height: auto;
   margin: 1.2rem;
 }
@@ -261,7 +270,7 @@ body {
 
 #options .results .score h2 {
   font-size: 1.5rem;
-  margin: 2rem;
+  margin: 1rem;
 }
 
 #options .results .score::before {
