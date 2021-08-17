@@ -1,3 +1,29 @@
+:root {
+  --bg: rgb(231, 231, 231);
+  --calc-body: rgb(236, 236, 236);
+  --cyan: rgb(129, 206, 198);
+  --display: rgb(207, 207, 207);
+  --current-operation: grey;
+  --clear: rgb(246, 119, 45);
+  --equals: rgb(74, 155, 168);
+  --focus: orange;
+  --body-buttons: lightgrey;
+  --main-font: black;
+
+  @media (prefers-color-scheme: dark) {
+    --bg: rgb(39, 32, 32);
+    --calc-body: rgb(38, 33, 30);
+    --cyan: rgb(134, 110, 46);
+    --display: rgb(78, 76, 76);
+    --current-operation: rgb(189, 177, 161);
+    --clear: rgb(201, 100, 42);
+    --equals: rgb(51, 159, 175);
+    --focus: orange;
+    --body-buttons: rgb(70, 70, 70);
+    --main-font: rgb(218, 218, 218);
+  }
+}
+
 * {
   box-sizing: border-box;
   font-family: monospace;
@@ -10,19 +36,19 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: rgb(231, 231, 231);
+  background-color: var(--bg);
 }
 
 #calculator {
   display: flex;
   flex-direction: column;
-  background: rgb(236, 236, 236);
+  background: var(--calc-body);
   padding: 0.5rem;
   gap: 0.5rem;
   border-radius: 0.125rem;
   width: 100%;
   height: 100vh;
-  box-shadow: 0.5rem 0.25rem 2rem -1rem #81cec6;
+  box-shadow: 0.5rem 0.25rem 2rem -1rem var(--cyan);
 
   @media (min-width: 750px) {
     max-width: 50vw;
@@ -30,7 +56,7 @@ body {
   }
 
   .display {
-    background: rgb(207, 207, 207);
+    background: var(--display);
     margin: 0;
     padding: 2rem 1rem;
     text-align: right;
@@ -40,6 +66,7 @@ body {
     flex-grow: 1;
     overflow: hidden;
     position: relative;
+    color: var(--main-font);
     
     & > div {
       position: absolute;
@@ -68,12 +95,12 @@ body {
         bottom: 0;
         right: 0;
         background: transparent;
-        box-shadow: inset -2rem 0 1rem -1rem rgb(207, 207, 207);
+        box-shadow: inset -2rem 0 1rem -1rem var(--display);
         z-index: 3;
       }
 
       #currentOperation {
-        color: grey;
+        color: var(--current-operation);
         font-size: 0.75rem;
         padding: 0.35rem;
         z-index: 2;
@@ -99,7 +126,7 @@ body {
         bottom: 0;
         right: 0;
         background: transparent;
-        box-shadow: inset 2rem 0 1rem -1rem rgb(207, 207, 207);
+        box-shadow: inset 2rem 0 1rem -1rem var(--display);
         z-index: 1;
       }
       
@@ -122,26 +149,26 @@ body {
     button {
       display: block;
       padding: clamp(0.5rem, 3vw, 1.4rem) clamp(0.8rem, 4vw, 1.6rem);
-      background: grey;
+      background: var(--current-operation);
       border: none;
-      color: white;
+      color: var(--calc-body);
       transition-property: filter, background;
       transition: 100ms linear;
       cursor: pointer;
 
       &#clear {
         grid-column: 1 / 3;
-        background: #f6772d;
+        background: var(--clear);
       }
       
       &#equals {
-        background: #4a9ba8;
+        background: var(--equals);
         grid-column: 2 / 5;
       }
       
       &.body {
-        background: lightgrey;
-        color: black;
+        background: var(--body-buttons);
+        color: var(--main-font);
       }
 
       &:hover {
@@ -153,8 +180,8 @@ body {
       }
     
       &:focus {
-        background: orange !important;
-        color: white !important;
+        background: var(--focus) !important;
+        color: var(--calc-body) !important;
       }
     }
   }
