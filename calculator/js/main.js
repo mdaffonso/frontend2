@@ -4,11 +4,19 @@ const currentOperation = document.querySelector("#currentOperation")
 const numberButtons = document.querySelectorAll(".n")
 const error = ":("
 let resultMemory = []
+let orderOfKeysPressed = []
+let sym = [
+  "+", 
+  "-",
+  "×",
+  "÷"
+]
 
 const displayNumber = (n) => {
   if (mainValue.textContent === "0" || mainValue.textContent === error) mainValue.textContent = ""
   const currentValue = mainValue.textContent
   const newValue = `${currentValue}${n}`
+  orderOfKeysPressed.push(n)
   mainValue.textContent = newValue
 }
 
@@ -44,8 +52,12 @@ const operation = () => {
 }
 
 const execute = (n, s) => {
+  if (sym.includes(orderOfKeysPressed[orderOfKeysPressed.length - 1])) {
+    n = resultMemory.pop()[0]
+  }
+  orderOfKeysPressed.push(s)
   resultMemory.push([n, s])
-  operation(s)
+  operation()
 }
 
 const addMath = (m, n) => Number.parseFloat(m) + Number.parseFloat(n)
@@ -59,10 +71,10 @@ const divideMath = (m, n) => {
 
 const equals = () => {
   const conversionMatrix = [
-    { s: "+", o: addMath },
-    { s: "-", o: subtractMath },
-    { s: "×", o: multiplyMath },
-    { s: "÷", o: divideMath }
+    { s: sym[0], o: addMath },
+    { s: sym[1], o: subtractMath },
+    { s: sym[2], o: multiplyMath },
+    { s: sym[3], o: divideMath }
   ]
 
   let currentResult
@@ -75,6 +87,8 @@ const equals = () => {
     currentOperation = conversionMatrix.find(v => v.s === resultMemory[index-1][1])
     currentResult = currentOperation.o(currentResult, pair[0])
   }
+
+  if (isNaN(currentResult)) return error
 
   return currentResult
 }
@@ -108,19 +122,19 @@ window.addEventListener("keydown", e => {
   const validKeys = [
     {
       keys: ["+"],
-      do: () => execute(mainValue.textContent, "+")
+      do: () => execute(mainValue.textContent, sym[0])
     },
     {
       keys: ["-"],
-      do: () => execute(mainValue.textContent, "-")
+      do: () => execute(mainValue.textContent, sym[1])
     },
     {
       keys: ["*"],
-      do: () => execute(mainValue.textContent, "×")
+      do: () => execute(mainValue.textContent, sym[2])
     },
     {
       keys: ["/"],
-      do: () => execute(mainValue.textContent, "÷")
+      do: () => execute(mainValue.textContent, sym[3])
     },
     {
       keys: ["Escape", "Delete"],
