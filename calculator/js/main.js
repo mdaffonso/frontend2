@@ -14,6 +14,7 @@ let sym = [
 
 const displayNumber = (n) => {
   if (mainValue.textContent === "0" || mainValue.textContent === error) mainValue.textContent = ""
+  if (orderOfKeysPressed[orderOfKeysPressed.length - 1] === "=") reset()
   const currentValue = mainValue.textContent
   const newValue = `${currentValue}${n}`
   orderOfKeysPressed.push(n)
