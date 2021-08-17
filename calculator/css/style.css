@@ -59,7 +59,7 @@ body {
   background: var(--calc-body);
   padding: 0.5rem;
   gap: 0.5rem;
-  border-radius: 0.125rem;
+  border-radius: 0.25rem;
   width: 100%;
   height: 100vh;
   -webkit-box-shadow: 0.5rem 0.25rem 2rem -1rem var(--cyan);
