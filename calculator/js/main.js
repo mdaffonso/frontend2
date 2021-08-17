@@ -52,7 +52,7 @@ const subtractMath = (m, n) => Number.parseFloat(m) - Number.parseFloat(n)
 const multiplyMath = (m, n) => Number.parseFloat(m) * Number.parseFloat(n)
 const divideMath = (m, n) => {
   const result = Number.parseFloat(m) / Number.parseFloat(n)
-  if(result === Infinity) return ":("
+  if(n === "0") return ":("
   return result
 }
 
