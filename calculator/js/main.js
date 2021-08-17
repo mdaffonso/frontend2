@@ -5,7 +5,7 @@ const numberButtons = document.querySelectorAll(".n")
 let resultMemory = []
 
 const displayNumber = (n) => {
-  if (mainValue.textContent === "0") mainValue.textContent = ""
+  if (mainValue.textContent === "0" || mainValue.textContent === ":(") mainValue.textContent = ""
   const currentValue = mainValue.textContent
   const newValue = `${currentValue}${n}`
   mainValue.textContent = newValue
