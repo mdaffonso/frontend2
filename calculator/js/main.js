@@ -2,10 +2,11 @@ const display = document.querySelector(".display")
 const mainValue = document.querySelector("#mainValue")
 const currentOperation = document.querySelector("#currentOperation")
 const numberButtons = document.querySelectorAll(".n")
+const error = ":("
 let resultMemory = []
 
 const displayNumber = (n) => {
-  if (mainValue.textContent === "0" || mainValue.textContent === ":(") mainValue.textContent = ""
+  if (mainValue.textContent === "0" || mainValue.textContent === error) mainValue.textContent = ""
   const currentValue = mainValue.textContent
   const newValue = `${currentValue}${n}`
   mainValue.textContent = newValue
@@ -31,7 +32,7 @@ const deleteDigit = () => {
 }
 
 const operation = () => {
-  if(mainValue.textContent === ":(") reset()
+  if(mainValue.textContent === error) reset()
   currentOperation.textContent = resultMemory.flat().join("")
   const refOp = currentOperation.textContent
   if(refOp.includes("=") && refOp.indexOf("=") !== refOp.length - 1) {
@@ -52,7 +53,7 @@ const subtractMath = (m, n) => Number.parseFloat(m) - Number.parseFloat(n)
 const multiplyMath = (m, n) => Number.parseFloat(m) * Number.parseFloat(n)
 const divideMath = (m, n) => {
   const result = Number.parseFloat(m) / Number.parseFloat(n)
-  if(n === "0") return ":("
+  if(n === "0") return error
   return result
 }
 
@@ -79,15 +80,11 @@ const equals = () => {
 }
 
 const displayEquals = () => {
+  if (mainValue.textContent === error) return
   resultMemory.push([mainValue.textContent, "="])
   operation()
   const result = `${equals()}`
-  const parts = result.split(".")
-  if (parts[1] && parts[1].length > 10) {
-    parts[1] = parts[1].substr(0, 10)
-    mainValue.setAttribute("data-large", "...")
-  }
-  mainValue.textContent = parts.join(".")
+  mainValue.textContent = result
 }
 
 document.querySelector("#clear").addEventListener("click", reset)

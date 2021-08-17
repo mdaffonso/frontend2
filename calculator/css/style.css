@@ -48,7 +48,7 @@ body {
 #calculator .display {
   background: #cfcfcf;
   margin: 0;
-  padding: 1rem;
+  padding: 2rem 1rem;
   text-align: right;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -62,18 +62,62 @@ body {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+#calculator .display span {
+  display: block;
+  overflow: hidden;
+  position: absolute;
 }
 
 #calculator .display span:not(#mainValue) {
   color: grey;
   font-size: 0.85rem;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  z-index: 2;
 }
 
-#calculator .display #mainValue {
-  margin: 0 0 0 auto;
+#calculator .display #mainValueContainer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 95%;
+  height: 100%;
+  padding: 1rem;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
-#calculator .display #mainValue::after {
+#calculator .display #mainValueContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: transparent;
+  -webkit-box-shadow: inset 2rem 0 1rem -1rem #cfcfcf;
+          box-shadow: inset 2rem 0 1rem -1rem #cfcfcf;
+  z-index: 1;
+}
+
+#calculator .display #mainValueContainer #mainValue {
+  text-align: right;
+}
+
+#calculator .display #mainValueContainer #mainValue::after {
   content: attr(data-large);
 }
 

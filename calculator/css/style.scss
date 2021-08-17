@@ -32,23 +32,60 @@ body {
   .display {
     background: rgb(207, 207, 207);
     margin: 0;
-    padding: 1rem;
+    padding: 2rem 1rem;
     text-align: right;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+    
+    span {
+      display: block;
+      overflow: hidden;
+      position: absolute;
+    }
 
     span:not(#mainValue) {
       color: grey;
       font-size: 0.85rem;
+      top: 0;
+      left: 0;
+      padding: 0.5rem;
+      z-index: 2;
     }
 
-    #mainValue {
-      margin: 0 0 0 auto;
+    #mainValueContainer {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 95%;
+      height: 100%;
+      padding: 1rem;
+      overflow: hidden;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
 
-      &::after {
-        content: attr(data-large);
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: transparent;
+        box-shadow: inset 2rem 0 1rem -1rem rgb(207, 207, 207);
+        z-index: 1;
+      }
+      
+      #mainValue {
+        text-align: right;
+  
+        &::after {
+          content: attr(data-large);
+        }
       }
     }
   }
