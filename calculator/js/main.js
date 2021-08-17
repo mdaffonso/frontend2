@@ -13,8 +13,11 @@ let sym = [
 ]
 
 const displayNumber = (n) => {
+  if (orderOfKeysPressed[orderOfKeysPressed.length - 1] === "=") {
+    reset()
+    orderOfKeysPressed.push("C")
+  }
   if (mainValue.textContent === "0" || mainValue.textContent === error) mainValue.textContent = ""
-  if (orderOfKeysPressed[orderOfKeysPressed.length - 1] === "=") reset()
   const currentValue = mainValue.textContent
   const newValue = `${currentValue}${n}`
   orderOfKeysPressed.push(n)
@@ -95,6 +98,7 @@ const equals = () => {
 }
 
 const displayEquals = () => {
+  orderOfKeysPressed.push("=")
   if (mainValue.textContent === error) return
   resultMemory.push([mainValue.textContent, "="])
   operation()
@@ -160,5 +164,6 @@ window.addEventListener("keydown", e => {
     return
   }
 
+  e.preventDefault()
   action.do()
 })
