@@ -59,14 +59,14 @@ li {
   margin: 0.25em 0;
   padding: .75em 1.25em;
   background-color: var(--accent);
-  border-radius: 10em;
+  border-radius: 2rem;
   color: var(--body);
   font-size: 1.1em;
 }
 
 .dark-mode-toggle {
-  width: 12ch;
-  height: 6ch;
+  width: 100px;
+  height: 50px;
 }
 
 .dark-mode-toggle button {
@@ -81,6 +81,12 @@ li {
   cursor: pointer;
 }
 
+.dark-mode-toggle button:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 0.5rem var(--main), 0 0 0 1rem var(--accent);
+          box-shadow: 0 0 0 0.5rem var(--main), 0 0 0 1rem var(--accent);
+}
+
 .dark-mode-toggle button div {
   position: absolute;
   top: 50%;
@@ -89,8 +95,8 @@ li {
   width: 4ch;
   background: var(--icon);
   border-radius: 50%;
-  -webkit-transform: translate(50%, -50%);
-          transform: translate(50%, -50%);
+  -webkit-transform: translate(15px, -50%);
+          transform: translate(15px, -50%);
   -webkit-transition-property: -webkit-transform;
   transition-property: -webkit-transform;
   transition-property: transform;
@@ -119,8 +125,8 @@ li {
 }
 
 .dark-mode-toggle button div.dm {
-  -webkit-transform: translate(220%, -50%);
-          transform: translate(220%, -50%);
+  -webkit-transform: translate(55px, -50%);
+          transform: translate(55px, -50%);
 }
 
 .dark-mode-toggle button div.dm::before {

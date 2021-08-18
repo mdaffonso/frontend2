@@ -45,14 +45,14 @@ li {
   margin: 0.25em 0;
   padding: .75em 1.25em;
   background-color: var(--accent);
-  border-radius: 10em;
+  border-radius: 2rem;
   color: var(--body);
   font-size: 1.1em;
 }
 
 .dark-mode-toggle {
-  width: 12ch;
-  height: 6ch;
+  width: 100px;
+  height: 50px;
 
   button {
     margin: 1.5rem 0 1rem;
@@ -65,6 +65,11 @@ li {
     overflow: hidden;
     cursor: pointer;
 
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 0.5rem var(--main), 0 0 0 1rem var(--accent);
+    }
+
     div {
       position: absolute;
       top: 50%;
@@ -73,7 +78,7 @@ li {
       width: 4ch;
       background: var(--icon);
       border-radius: 50%;
-      transform: translate(50%, -50%);
+      transform: translate(15px, -50%);
       transition-property: transform;
 
       &::before {
@@ -92,7 +97,7 @@ li {
       }
 
       &.dm {
-        transform: translate(220%, -50%);
+        transform: translate(55px, -50%);
 
         &::before {
           transform: scale(1) translate(-10%, -50%);
