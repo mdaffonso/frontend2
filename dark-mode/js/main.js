@@ -65,6 +65,10 @@ const themes = [
   }
 ]
 
+const isDarkModeEnabled = () => {
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+}
+
 const changeRootProperty = (prop, value) => {
   root.style.setProperty(prop, value)
 }
@@ -93,3 +97,9 @@ const toggleTheme = () => {
 }
 
 button.addEventListener("click", toggleTheme)
+window.onload = () => {
+  setTimeout(() => {
+    if(isDarkModeEnabled())
+      toggleTheme()
+  }, 250)
+}
