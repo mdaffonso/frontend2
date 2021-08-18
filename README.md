@@ -5,6 +5,7 @@ Repositório criado para os projetos desenvolvidos na disciplina de front-end 2 
 
 Alternativamente, você pode visitar diretamente os links internos:
 
++ [Dark Mode Toggle](https://mdaffonso.github.io/frontend2/dark-mode/)
 + [Calculadora](https://mdaffonso.github.io/frontend2/calculator/)
 + [Pedra, Papel e Tesoura](https://mdaffonso.github.io/frontend2/jokenpo/)
 + [Médias](https://mdaffonso.github.io/frontend2/averages/)
