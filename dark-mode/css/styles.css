@@ -77,14 +77,37 @@ li {
   height: 100%;
   position: relative;
   border-radius: 10em;
-  overflow: hidden;
   cursor: pointer;
+}
+
+.dark-mode-toggle button::before {
+  position: absolute;
+  content: "";
+  height: 0.75rem;
+  width: 0.75rem;
+  top: 50%;
+  right: 0;
+  -webkit-box-shadow: 0.35rem 0.35rem var(--secondary);
+          box-shadow: 0.35rem 0.35rem var(--secondary);
+  opacity: 0;
+  -webkit-transform: translate(3rem, -50%) rotate(135deg);
+          transform: translate(3rem, -50%) rotate(135deg);
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
+  -webkit-transition: var(--transition-time) ease-in-out;
+  transition: var(--transition-time) ease-in-out;
 }
 
 .dark-mode-toggle button:focus {
   outline: none;
-  -webkit-box-shadow: 0 0 0 0.5rem var(--main), 0 0 0 1rem var(--accent);
-          box-shadow: 0 0 0 0.5rem var(--main), 0 0 0 1rem var(--accent);
+}
+
+.dark-mode-toggle button:focus::before {
+  opacity: 1;
+  -webkit-transform: translate(2rem, -50%) rotate(135deg);
+          transform: translate(2rem, -50%) rotate(135deg);
 }
 
 .dark-mode-toggle button div {

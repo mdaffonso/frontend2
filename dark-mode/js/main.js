@@ -69,29 +69,27 @@ const isDarkModeEnabled = () => {
   return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
 }
 
-const changeRootProperty = (prop, value) => {
-  root.style.setProperty(prop, value)
-}
-
 const setTheme = () => {
   switch(theme) {
     case "alternate":
-      return "main"
-    case "main":
-      return "alternate"
+      theme = "main"
+      return
+    default:
+      theme = "alternate"
+      return
   }
 }
 
-const cycleProps = (theme) => {
+const cycleProps = () => {
   const newThemeProps = themes.find(t => t.name === theme).pallette
   for (let prop of newThemeProps) {
-    changeRootProperty(prop.key, prop.value)
+    root.style.setProperty(prop.key, prop.value)
   }
 }
 
 const toggleTheme = () => {
-  theme = setTheme()
-  cycleProps(theme)
+  setTheme()
+  cycleProps()
 
   buttonIcon.classList.toggle("dm")
 }
