@@ -22,7 +22,6 @@ header {
   align-items: center;
   padding: 1rem;
   position: relative;
-  width: 100%;
   min-height: 100vh;
   z-index: 1;
   color: white;
@@ -73,10 +72,11 @@ section {
   margin: 3rem 0;
   padding: 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(32ch, 1fr));
+  grid-template-columns: 1fr;
 
   @media (min-width: 500px) {
     padding: 1rem clamp(1rem, 15vw, 25rem);
+    grid-template-columns: repeat(auto-fit, minmax(35ch, 1fr));
   }
 
   button {
@@ -90,6 +90,7 @@ section {
     box-shadow: 0 0.9rem 0 -0.75rem rgba(0, 0, 0, 0.199);
     position: relative;
     transition: filter 150ms ease-in-out;
+    word-wrap: break-word;
 
     &::before {
       position: absolute;
