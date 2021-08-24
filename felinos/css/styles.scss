@@ -94,6 +94,7 @@ section {
     border: none;
     background: orange;
     color: white;
+    margin: 0.5rem;
     padding: 1em 2em;
     cursor: pointer;
     font-size: clamp(1rem, 3vw, 2rem);
@@ -102,6 +103,8 @@ section {
     position: relative;
     transition: filter 150ms ease-in-out;
     word-wrap: break-word;
+    border-radius: 0.5rem;
+    max-width: max-content;
 
     &::before {
       position: absolute;
@@ -111,6 +114,7 @@ section {
       left: 0;
       width: 100%;
       height: 100%;
+      border-radius: 0.5rem;
       transition: box-shadow 150ms ease-in-out;
     }
 
