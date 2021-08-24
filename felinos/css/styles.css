@@ -67,6 +67,18 @@ header h1 {
   max-width: 23ch;
   line-height: 1.5em;
   text-transform: uppercase;
+  position: relative;
+}
+
+header h1::before {
+  position: absolute;
+  content: '';
+  top: -0.75rem;
+  left: -2rem;
+  width: 4rem;
+  height: 4rem;
+  -webkit-box-shadow: -0.125rem -0.125rem orange;
+          box-shadow: -0.125rem -0.125rem orange;
 }
 
 a {
