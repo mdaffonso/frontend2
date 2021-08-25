@@ -5,6 +5,7 @@ Repositório criado para os projetos desenvolvidos na disciplina de front-end 2 
 
 Alternativamente, você pode visitar diretamente os links internos:
 
++ [Formulário de Login](https://mdaffonso.github.io/frontend2/form/)
 + [Lista de Felinos](https://mdaffonso.github.io/frontend2/felinos/)
 + [Dark Mode Toggle](https://mdaffonso.github.io/frontend2/dark-mode/)
 + [Calculadora](https://mdaffonso.github.io/frontend2/calculator/)

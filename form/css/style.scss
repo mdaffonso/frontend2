@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&display=swap');
+
+:root {
+  --main-color: rgb(255, 203, 34);
+  --accent-color: rgb(5, 155, 79);
+  --empty-color: rgb(241, 241, 241);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--main-color);
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  font-size: 1.2rem;
+
+  & > div {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+
+    & > * {
+      flex-grow: 1;
+    }
+  }
+}
+
+button {
+  background: var(--accent-color);
+  color: white;
+  padding: 1em;
+  border: 0.125rem solid var(--accent-color);
+  max-width: max-content;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  
+  &.generator {
+    margin: auto 0;
+    padding: 2em;
+    font-size: 1.5rem;
+  }
+
+  &.alt {
+    background: transparent;
+    color: var(--accent-color);
+    font-weight: 600;
+  }
+
+  &.alt-boxless {
+    background: transparent;
+    border-color: transparent;
+    color: var(--accent-color);
+    font-weight: 400;
+  }
+}
+
+header, main {
+  width: 100%;
+  padding: 1rem;
+
+  @media (min-width: 550px) {
+    padding: 3rem clamp(1rem, 25vw, 30rem);
+  }
+}
+
+header {
+  min-height: 40vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+
+  h1 {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+}
+
+.field-group {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 1rem;
+
+  input {
+    padding: 0.5em 1em;
+    border-radius: 0.25rem;
+    border: none;
+    background: white;
+    box-shadow: 0.25rem 0.25rem 1rem -0.25rem rgba(0, 0, 0, 0.096);
+    max-width: 55ch;
+  }
+}
+
+.button-group {
+  margin: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.fade-in {
+  animation: fade-in 200ms ease-in-out;
+}
+
+.fade-out {
+  animation: fade-out 200ms ease-in-out forwards;
+}
+
+.fade-to-white {
+  animation: fade-to-white 200ms ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-to-white {
+  from {
+    background-color: var(--main-color);
+  }
+
+  to {
+    background-color: var(--empty-color);
+  }
+}
