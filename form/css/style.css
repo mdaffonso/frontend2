@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&display=swap");
 :root {
   --main-color: rgb(255, 203, 34);
@@ -50,6 +51,7 @@ body > div > * {
 }
 
 button {
+  --tooltip-animation: fade-out 150ms 1.5s ease-in-out forwards;
   background: var(--accent-color);
   color: white;
   padding: 1em;
@@ -59,12 +61,46 @@ button {
   max-width: max-content;
   cursor: pointer;
   text-transform: uppercase;
+  position: relative;
 }
 
 button.generator {
   margin: auto 0;
   padding: 2em;
   font-size: 1.5rem;
+}
+
+button.generator::before {
+  content: "Clique neste botão para gerar o HTML da página.";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, -120%);
+          transform: translate(-50%, -120%);
+  font-size: 1rem;
+  text-transform: none;
+  background: var(--empty-color);
+  color: darkslategrey;
+  padding: 1em;
+  -webkit-animation: var(--tooltip-animation);
+          animation: var(--tooltip-animation);
+}
+
+button.generator::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, -170%) rotate(45deg);
+          transform: translate(-50%, -170%) rotate(45deg);
+  width: 2rem;
+  height: 2rem;
+  background: var(--empty-color);
+  z-index: -1;
+  -webkit-animation: var(--tooltip-animation);
+          animation: var(--tooltip-animation);
+  -webkit-animation-delay: 1.45s;
+          animation-delay: 1.45s;
 }
 
 button.alt {
@@ -153,6 +189,24 @@ header h1 {
 .fade-to-white {
   -webkit-animation: fade-to-white 200ms ease-in-out forwards;
           animation: fade-to-white 200ms ease-in-out forwards;
+}
+
+#toast {
+  position: fixed;
+  top: 85%;
+  left: 50%;
+  width: 15rem;
+  padding: 1em;
+  font-size: 1rem;
+  background: white;
+  -webkit-box-shadow: 0.5rem 0.5rem 1rem -0.5rem rgba(0, 0, 0, 0.158);
+          box-shadow: 0.5rem 0.5rem 1rem -0.5rem rgba(0, 0, 0, 0.158);
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  color: black;
+  min-height: unset;
+  -webkit-animation: fade-in 300ms, fade-out 300ms 3s forwards;
+          animation: fade-in 300ms, fade-out 300ms 3s forwards;
 }
 
 @-webkit-keyframes fade-in {

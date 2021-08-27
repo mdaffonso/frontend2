@@ -40,11 +40,13 @@ const generateHTML = () => {
   emailField.type = "email"
   emailField.id = "email"
   emailField.name = "email"
+  emailField.required = true
 
   passwordGroup.classList.add("field-group")
   passwordField.type = "password"
   passwordField.id = "password"
   passwordField.name = "password"
+  passwordField.required = true
 
   submitButton.id="submit"
 
@@ -105,7 +107,13 @@ const generateHTML = () => {
 const init = () => {
   removeGeneratorButton(document.querySelector("#generator-button"))
   document.body.appendChild(generateHTML())
-  document.querySelector("form").addEventListener("submit", e => e.preventDefault())
+  document.querySelector("form").addEventListener("submit", e => {
+    const email = document.querySelector("#email").value
+    document.querySelector("#email").value = ""
+    document.querySelector("#password").value = ""
+    e.preventDefault()
+    showToast(`Você entrou como ${email}`)
+  })
 }
 
 const generateGeneratorButton = () => {
@@ -116,6 +124,16 @@ const generateGeneratorButton = () => {
   button.classList.add("fade-in")
   button.id = "generator-button"
   document.body.appendChild(button)
+}
+
+const showToast = (text) => {
+  const toast = document.createElement("div")
+  toast.id = "toast"
+  toast.textContent = text
+  document.body.appendChild(toast)
+  setTimeout(() => {
+    toast.remove()
+  }, 3500)
 }
 
 generateGeneratorButton()
