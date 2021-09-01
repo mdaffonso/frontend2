@@ -167,3 +167,7 @@ window.addEventListener("keydown", e => {
   e.preventDefault()
   action.do()
 })
+
+window.addEventListener("resize", () => {
+  document.body.setAttribute("min-height", window.innerHeight)
+})
