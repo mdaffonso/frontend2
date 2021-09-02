@@ -34,7 +34,7 @@
 <!-- campo de texto para o título --> <input type="text" id="title">
 <!-- fecha o div que reúne o label e o input em um bloco --> </div>
 <!-- div que reúne label e input em um bloco --> <div style="display: flex; flex-direction: column;">
-<!-- label para a url da imagem --> <label for="image">url de Imagem</label>
+<!-- label para a url da imagem --> <label for="image">url de imagem</label>
 <!-- campo de texto para a url da imagem --> <input type="text" id="image">
 <!-- fecha o div que reúne o label e o input em um bloco --> </div>
 <!-- div que reúne label e o input em um bloco --> <div style="display: flex; flex-direction: column;">
@@ -62,54 +62,54 @@
 <!-- conteúdo gerado dinamicamente vai aqui -->
 <!-- fechamento do conteúdo gerado dinamicamente --></div> 
 <!-- tag de script que mantém o javascript --><script>
-function enviarFormulario(evento_doEnvioDo_formulario) { // cria a função que vai se encarregar do envio do formulário
-evento_doEnvioDo_formulario.preventDefault() // impede o formulário de recarregar a página
-var TITULO_DO_FORMULARIO = document.getElementById("title").value // pega o valor do input com id "title" e salva na variável TITULO_DO_FORMULARIO
-var IMAGEM_DO_FORMULARIO = document.getElementById("image").value // pega o valor do input com id "image" e salva na variável IMAGEM_DO_FORMULARIO
-var DESCRICAO_DO_FORMULARIO = document.getElementById("description").value // pega o valor do input com id "description" e salva na variável DESCRICAO_DO_FORMULARIO
-if (TITULO_DO_FORMULARIO == false || IMAGEM_DO_FORMULARIO == false || DESCRICAO_DO_FORMULARIO == false) { // se qualquer um dos campos estiver vazio, executa as linhas abaixo
-confirm("todos os campos devem ser preenchidos") // exibe um alerta para o usuário informando que os campos precisam ser preenchidos
-var TITULO_CORRETO = prompt("digite um título para a nota do cachorro") // pede para o usuário inserir um título
-var IMAGEM_CORRETA = prompt("insira a url da imagem desejada") // pede para o usuário inserir a url da imagem
-var DESCRICAO_CORRETA = prompt("insira a descrição da nota do cachorro") // pede para o usuário inserir a descrição da nota
-document.getElementById("title").value = TITULO_CORRETO // define o valor do input com id title para o novo valor
-document.getElementById("image").value = IMAGEM_CORRETA // define o valor do input com id image para o novo valor
-document.getElementById("description").value = DESCRICAO_CORRETA // define o valor do input com id description para o novo valor
-return // sai da execução da função
-} // encerra o bloco de execução condicional
-var novaDiv = document.createElement("div") // cria uma nova div na variável novaDiv
-novaDiv.style.display = "flex" // define a propriedade de css display da novaDiv para flex
-novaDiv.style.flexDirection = "column" // define a propriedade de css flex-direction da novaDiv para column
-novaDiv.style.borderWidth = "3px" // define a propriedade de css border-width da novaDiv para 3px
-novaDiv.style.borderStyle = "solid" // define a propriedade de css border-style da novaDiv para solid
-novaDiv.style.borderColor = "black" // define a propriedade de css border-color da novaDiv para black
-var imagem_da_novaDiv = document.createElement("img") // cria uma nova tag <img> na variável imagem_da_novaDiv
-imagem_da_novaDiv.src = IMAGEM_DO_FORMULARIO // define o endereço da imagem para o valor guardado na variável IMAGEM_DO_FORMULARIO
-imagem_da_novaDiv.style.width = "100%" // define a propriedade de css width da imagem_da_novaDiv para 100%
-novaDiv.appendChild(imagem_da_novaDiv) // prende a imagem_da_novaDiv na novaDiv
-novaDiv.appendChild(document.createElement("br")) // cria uma tag <br> para dar espaçamento adicional e a prende na novaDiv após a imagem_da_novaDiv
-var titulo_da_novaDiv = document.createElement("h2")  // cria uma nova tag <h2> na variável titulo_da_novaDiv
-titulo_da_novaDiv.innerText = TITULO_DO_FORMULARIO // define o texto do titulo_da_novaDiv para o valor guardado na variável TITULO_DO_FORMULARIO
-novaDiv.appendChild(titulo_da_novaDiv) // prende o título_da_novaDiv na novaDiv
-novaDiv.style.background = "white" // define a propriedade de css background da novaDiv para white
-novaDiv.appendChild(document.createElement("br")) // cria uma tag <br> para dar espaçamento adicional e a prende na novaDiv após a imagem_da_novaDiv
-var texto_da_novaDiv = document.createElement("p") // cria uma nova tag <h2> na variável texto_da_novaDiv
-texto_da_novaDiv.innerText = DESCRICAO_DO_FORMULARIO // define o texto do texto_da_novaDiv para o valor guardado na variável DESCRICAO_DO_FORMULARIO
-novaDiv.appendChild(texto_da_novaDiv) // prende o texto_da_novadiv na novaDiv
-document.getElementById("conteudo-principal-do-site").appendChild(novaDiv) // prende a novaDiv na div com o id conteudo-principal-do-site
-novaDiv.style.float = "left" // define a propriedade de css float da novaDiv para left
-document.getElementById("title").value = "" // redefine o valor do input com id title
-document.getElementById("image").value = "" // redefine o valor do input com id image
-novaDiv.style.marginRight = "21px" // define a propriedade de css margin-right da novaDiv para 21px
-document.getElementById("description").value = "" // redefine o valor do input com id description
-novaDiv.style.padding = "15px" // define a propriedade de css padding da novaDiv para 15px
-novaDiv.style.marginBottom = "15px" // define a propriedade de css margin-bottom da novaDiv para 15px
-alert("nota criada com sucesso") // emite um alerta para avisar ao usuário que a nota foi criada
-var mais_uma_nota = confirm("deseja criar mais uma nota?") // pergunta para o usuário se ele deseja criar mais uma nota
-if (mais_uma_nota != false) { // se o usuário não clicar em não, executa a próxima linha
-document.getElementById("title").focus() // marca o input com id title e dá foco nele
-} // fecha o bloco condicional
-} // fecha a função
-</script> <!-- fechamento da tag de script que mantém o javascript -->
+/* cria a função que vai se encarregar do envio do formulário */ function enviarFormulario(evento_doEnvioDo_formulario) {
+/* impede o formulário de recarregar a página */ evento_doEnvioDo_formulario.preventDefault()
+/* pega o valor do input com id "title" e salva na variável TITULO_DO_FORMULARIO */ var TITULO_DO_FORMULARIO = document.getElementById("title").value
+/* pega o valor do input com id "image" e salva na variável IMAGEM_DO_FORMULARIO */ var IMAGEM_DO_FORMULARIO = document.getElementById("image").value
+/* pega o valor do input com id "description" e salva na variável DESCRICAO_DO_FORMULARIO */ var DESCRICAO_DO_FORMULARIO = document.getElementById("description").value
+/* se qualquer um dos campos estiver vazio, executa as linhas abaixo */ if (TITULO_DO_FORMULARIO == false || IMAGEM_DO_FORMULARIO == false || DESCRICAO_DO_FORMULARIO == false) {
+/* exibe um alerta para o usuário informando que os campos precisam ser preenchidos */ confirm("todos os campos devem ser preenchidos")
+/* pede para o usuário inserir um título */ var TITULO_CORRETO = prompt("digite um título para a nota do cachorro")
+/* pede para o usuário inserir a url da imagem */ var IMAGEM_CORRETA = prompt("insira a url da imagem desejada")
+/* pede para o usuário inserir a descrição da nota */ var DESCRICAO_CORRETA = prompt("insira a descrição da nota do cachorro")
+/* define o valor do input com id title para o novo valor */ document.getElementById("title").value = TITULO_CORRETO
+/* define o valor do input com id image para o novo valor */ document.getElementById("image").value = IMAGEM_CORRETA
+/* define o valor do input com id description para o novo valor */ document.getElementById("description").value = DESCRICAO_CORRETA
+/* sai da execução da função */ return
+/* encerra o bloco de execução condicional */ }
+/* cria uma nova div na variável novaDiv */ var novaDiv = document.createElement("div")
+/* define a propriedade de css display da novaDiv para flex */ novaDiv.style.display = "flex"
+/* define a propriedade de css flex-direction da novaDiv para column */ novaDiv.style.flexDirection = "column"
+/* define a propriedade de css border-width da novaDiv para 3px */ novaDiv.style.borderWidth = "3px"
+/* define a propriedade de css border-style da novaDiv para solid */ novaDiv.style.borderStyle = "solid"
+/* define a propriedade de css border-color da novaDiv para black */ novaDiv.style.borderColor = "black"
+/* cria uma nova tag <img> na variável imagem_da_novaDiv */ var imagem_da_novaDiv = document.createElement("img")
+/* define o endereço da imagem para o valor guardado na variável IMAGEM_DO_FORMULARIO */ imagem_da_novaDiv.src = IMAGEM_DO_FORMULARIO
+/* define a propriedade de css width da imagem_da_novaDiv para 100% */ imagem_da_novaDiv.style.width = "100%"
+/* prende a imagem_da_novaDiv na novaDiv */ novaDiv.appendChild(imagem_da_novaDiv)
+/* cria uma tag <br> para dar espaçamento adicional e a prende na novaDiv após a imagem_da_novaDiv */ novaDiv.appendChild(document.createElement("br"))
+/* cria uma nova tag <h2> na variável titulo_da_novaDiv */ var titulo_da_novaDiv = document.createElement("h2") 
+/* define o texto do titulo_da_novaDiv para o valor guardado na variável TITULO_DO_FORMULARIO */ titulo_da_novaDiv.innerText = TITULO_DO_FORMULARIO
+/* prende o título_da_novaDiv na novaDiv */ novaDiv.appendChild(titulo_da_novaDiv)
+/* define a propriedade de css background da novaDiv para white */ novaDiv.style.background = "white"
+/* cria uma tag <br> para dar espaçamento adicional e a prende na novaDiv após a imagem_da_novaDiv */ novaDiv.appendChild(document.createElement("br"))
+/* cria uma nova tag <h2> na variável texto_da_novaDiv */ var texto_da_novaDiv = document.createElement("p")
+/* define o texto do texto_da_novaDiv para o valor guardado na variável DESCRICAO_DO_FORMULARIO */ texto_da_novaDiv.innerText = DESCRICAO_DO_FORMULARIO
+/* prende o texto_da_novadiv na novaDiv */ novaDiv.appendChild(texto_da_novaDiv)
+/* prende a novaDiv na div com o id conteudo-principal-do-site */ document.getElementById("conteudo-principal-do-site").appendChild(novaDiv)
+/* define a propriedade de css float da novaDiv para left */ novaDiv.style.float = "left"
+/* redefine o valor do input com id title */ document.getElementById("title").value = ""
+/* redefine o valor do input com id image */ document.getElementById("image").value = ""
+/* define a propriedade de css margin-right da novaDiv para 21px */ novaDiv.style.marginRight = "21px"
+/* redefine o valor do input com id description */ document.getElementById("description").value = ""
+/* define a propriedade de css padding da novaDiv para 15px */ novaDiv.style.padding = "15px"
+/* define a propriedade de css margin-bottom da novaDiv para 15px */ novaDiv.style.marginBottom = "15px"
+/* emite um alerta para avisar ao usuário que a nota foi criada */ alert("nota criada com sucesso")
+/* pergunta para o usuário se ele deseja criar mais uma nota */ var mais_uma_nota = confirm("deseja criar mais uma nota?")
+/* se o usuário não clicar em não, executa a próxima linha */ if (mais_uma_nota != false) {
+/* marca o input com id title e dá foco nele */ document.getElementById("title").focus()
+/* fecha o bloco condicional */ }
+/* fecha a função */ }
+/* fechamento da tag de script que mantém o javascript */ </script>
 <!-- fechamento do corpo do documento --></body>
 <!-- final do html --></html>
