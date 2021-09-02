@@ -4,9 +4,9 @@
   <meta charset="UTF-8"> <!-- definição do charset para utf-8 -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- tag meta para compatibilidade com ie -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- tag meta para ajuste de tamanho inicial do dispositivo -->
-  <title>MyCrappyNotes | 💩</title> <!-- tag de título da página -->
+  <title>MyCrappyNotes | Dogs</title> <!-- tag de título da página -->
 </head>
-<body style="display: flex; flex-wrap: wrap; margin: 0; background: #efefef;"> <!-- criando o corpo do html -->
+<body style="display: flex; flex-wrap: wrap; margin: 0; background: #efefef; background-image: url('https://www.specialdog.com.br/assets/imgs/cao.png'); background-size: cover; background-attachment: fixed;"> <!-- criando o corpo do html -->
   <div style="padding: 16px;"> <!-- div contendo o formulário -->
     <img src="logo.png" alt="logo" width="175">
     <form onsubmit="enviarFormulario(event)"> <!-- formulário que vai incluir os dados na página -->
@@ -30,6 +30,20 @@
   </div> <!-- tag de fechamento da div que contém o formulário -->
 
   <div id="conteudo-principal-do-site" style="display: flex; flex-direction: column-reverse; padding: 20px;"> <!-- abertura do conteúdo que será gerado dinamicamente -->
+    <div style="background: white; display: flex; flex-direction: column; border-width: 3px; border-style: solid; border-color: black; padding: 15px; margin-bottom: 15px;"> <!-- div com conteúdo exemplificativo que define o tema -->
+      <img src="https://skycms.s3.amazonaws.com/images/5495100/cachorro-card-1.png" style="width: 100%;"> <!-- imagem de exemplo com cachorro -->
+      <br> <!-- tag para espaçamento -->
+      <h2>dog 1</h2> <!-- título do card -->
+      <br> <!-- mais uma tag para espaçamento -->
+      <p>cachorro feliz correndo pelo gramado</p> <!-- descrição do card exemplificativo -->
+    </div> <!-- fecha a div do card -->
+    <div style="background: white; display: flex; flex-direction: column; border-width: 3px; border-style: solid; border-color: black; padding: 15px; margin-bottom: 15px;"> <!-- div com conteúdo exemplificativo que define o tema -->
+      <img src="https://skycms.s3.amazonaws.com/images/5495100/cachorro-card-3.png" style="width: 100%;"> <!-- imagem de exemplo com cachorro -->
+      <br> <!-- tag para espaçamento -->
+      <h2>dog 2</h2> <!-- título do card -->
+      <br> <!-- mais uma tag para espaçamento -->
+      <p>cachorro pidão dando a pata</p> <!-- descrição do card exemplificativo -->
+    </div> <!-- fecha a div do card -->
     <!-- conteúdo gerado dinamicamente vai aqui -->
   </div> <!-- fechamento do conteúdo gerado dinamicamente -->
   <script> // tag de script que mantém o javascript
@@ -38,6 +52,10 @@
       var TITULO_DO_FORMULARIO = document.getElementById("title").value // pega o valor do input com id "title" e salva na variável TITULO_DO_FORMULARIO
       var IMAGEM_DO_FORMULARIO = document.getElementById("image").value // pega o valor do input com id "image" e salva na variável IMAGEM_DO_FORMULARIO
       var DESCRICAO_DO_FORMULARIO = document.getElementById("description").value // pega o valor do input com id "description" e salva na variável DESCRICAO_DO_FORMULARIO
+      if (TITULO_DO_FORMULARIO == false || IMAGEM_DO_FORMULARIO == false || DESCRICAO_DO_FORMULARIO == false) { // se qualquer um dos campos estiver vazio, executa as linhas abaixo
+        confirm("todos os campos devem ser preenchidos") // exibe um alerta para o usuário informando que os campos precisam ser preenchidos
+        return // sai da execução da função
+      } // encerra o bloco de execução condicional
       var novaDiv = document.createElement("div") // cria uma nova div na variável novaDiv
       novaDiv.style.display = "flex" // define a propriedade de css display da novaDiv para flex
       novaDiv.style.flexDirection = "column" // define a propriedade de css flex-direction da novaDiv para column
@@ -46,12 +64,13 @@
       novaDiv.style.borderColor = "black" // define a propriedade de css border-color da novaDiv para black
       var imagem_da_novaDiv = document.createElement("img") // cria uma nova tag <img> na variável imagem_da_novaDiv
       imagem_da_novaDiv.src = IMAGEM_DO_FORMULARIO // define o endereço da imagem para o valor guardado na variável IMAGEM_DO_FORMULARIO
-      imagem_da_novaDiv.style.maxWidth = "100%" // define a propriedade de css max-width da imagem_da_novaDiv para 100%
+      imagem_da_novaDiv.style.width = "100%" // define a propriedade de css width da imagem_da_novaDiv para 100%
       novaDiv.appendChild(imagem_da_novaDiv) // prende a imagem_da_novaDiv na novaDiv
       novaDiv.appendChild(document.createElement("br")) // cria uma tag <br> para dar espaçamento adicional e a prende na novaDiv após a imagem_da_novaDiv
       var titulo_da_novaDiv = document.createElement("h2")  // cria uma nova tag <h2> na variável titulo_da_novaDiv
       titulo_da_novaDiv.innerText = TITULO_DO_FORMULARIO // define o texto do titulo_da_novaDiv para o valor guardado na variável TITULO_DO_FORMULARIO
       novaDiv.appendChild(titulo_da_novaDiv) // prende o título_da_novaDiv na novaDiv
+      novaDiv.style.background = "white" // define a propriedade de css background da novaDiv para white
       novaDiv.appendChild(document.createElement("br")) // cria uma tag <br> para dar espaçamento adicional e a prende na novaDiv após a imagem_da_novaDiv
       var texto_da_novaDiv = document.createElement("p") // cria uma nova tag <h2> na variável texto_da_novaDiv
       texto_da_novaDiv.innerText = DESCRICAO_DO_FORMULARIO // define o texto do texto_da_novaDiv para o valor guardado na variável DESCRICAO_DO_FORMULARIO
