@@ -7,6 +7,7 @@
 <!-- • manipulação do dom -->
 <!-- • formulários -->
 <!-- • eventos no html -->
+<!-- • float: left para um design responsivo -->
 <!-- • estilização no javascript e no html -->
 <!-- • declarção de variáveis -->
 <!-- • formulários no javascript -->
@@ -43,15 +44,15 @@
 <!-- botão para enviar o conteúdo do formulário --> <button type="submit">criar</button>
 <!-- tag de fechamento do formulário --> </form>
 <!-- tag de fechamento da div que contém o formulário --> </div>
-<!-- abertura do conteúdo que será gerado dinamicamente --> <div id="conteudo-principal-do-site" style="display: flex; flex-direction: column-reverse; padding: 20px;">
-<!-- div com conteúdo exemplificativo que define o tema --><div style="background: white; display: flex; flex-direction: column; border-width: 3px; border-style: solid; border-color: black; padding: 15px; margin-bottom: 15px;"> 
+<!-- abertura do conteúdo que será gerado dinamicamente --> <div id="conteudo-principal-do-site" style="padding: 20px;">
+<!-- div com conteúdo exemplificativo que define o tema --><div style="background: white; float:left; display: flex; flex-direction: column; border-width: 3px; border-style: solid; border-color: black; padding: 15px; margin-bottom: 15px;"> 
 <!-- imagem de exemplo com cachorro --><img src="https://skycms.s3.amazonaws.com/images/5495100/cachorro-card-1.png" style="width: 100%;"> 
 <!-- tag para espaçamento --><br> 
 <!-- título do card --><h2>dog 1</h2> 
 <!-- mais uma tag para espaçamento --><br> 
 <!-- descrição do card exemplificativo --><p>cachorro feliz correndo pelo gramado</p> 
 <!-- fecha a div do card --></div> 
-<!-- div com conteúdo exemplificativo que define o tema --><div style="background: white; display: flex; flex-direction: column; border-width: 3px; border-style: solid; border-color: black; padding: 15px; margin-bottom: 15px;"> 
+<!-- div com conteúdo exemplificativo que define o tema --><div style="background: white; float:left; display: flex; flex-direction: column; border-width: 3px; border-style: solid; border-color: black; padding: 15px; margin-bottom: 15px;"> 
 <!-- imagem de exemplo com cachorro --><img src="https://skycms.s3.amazonaws.com/images/5495100/cachorro-card-3.png" style="width: 100%;"> 
 <!-- tag para espaçamento --><br> 
 <!-- título do card --><h2>dog 2</h2> 
@@ -96,8 +97,10 @@ var texto_da_novaDiv = document.createElement("p") // cria uma nova tag <h2> na 
 texto_da_novaDiv.innerText = DESCRICAO_DO_FORMULARIO // define o texto do texto_da_novaDiv para o valor guardado na variável DESCRICAO_DO_FORMULARIO
 novaDiv.appendChild(texto_da_novaDiv) // prende o texto_da_novadiv na novaDiv
 document.getElementById("conteudo-principal-do-site").appendChild(novaDiv) // prende a novaDiv na div com o id conteudo-principal-do-site
+novaDiv.style.float = "left" // define a propriedade de css float da novaDiv para left
 document.getElementById("title").value = "" // redefine o valor do input com id title
 document.getElementById("image").value = "" // redefine o valor do input com id image
+novaDiv.style.marginRight = "21px" // define a propriedade de css margin-right da novaDiv para 21px
 document.getElementById("description").value = "" // redefine o valor do input com id description
 novaDiv.style.padding = "15px" // define a propriedade de css padding da novaDiv para 15px
 novaDiv.style.marginBottom = "15px" // define a propriedade de css margin-bottom da novaDiv para 15px
