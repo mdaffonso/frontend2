@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- declaração do tipo de documento -->
 <html lang="pt-BR"> <!-- abertura do html e definição do idioma -->
 <head> <!-- abertura da cabeça do documento -->
   <meta charset="UTF-8"> <!-- definição do charset para utf-8 -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- tag meta para compatibilidade com ie -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- tag meta para ajuste de tamanho inicial do dispositivo -->
   <title>MyCrappyNotes | Dogs</title> <!-- tag de título da página -->
-</head>
+</head> <!-- fechamento da cabeça do documento -->
 <body style="display: flex; flex-wrap: wrap; margin: 0; background: #efefef; background-image: url('https://www.specialdog.com.br/assets/imgs/cao.png'); background-size: cover; background-attachment: fixed;"> <!-- criando o corpo do html -->
   <div style="padding: 16px;"> <!-- div contendo o formulário -->
     <img src="logo.png" alt="logo" width="175">
@@ -14,21 +14,17 @@
         <label for="title">título</label> <!-- label para o título -->
         <input type="text" id="title"> <!-- campo de texto para o título -->
       </div> <!-- fecha o div que reúne o label e o input em um bloco -->
-      
       <div style="display: flex; flex-direction: column;"> <!-- div que reúne label e input em um bloco -->
         <label for="image">url de Imagem</label> <!-- label para a url da imagem -->
         <input type="text" id="image"> <!-- campo de texto para a url da imagem -->
       </div> <!-- fecha o div que reúne o label e o input em um bloco -->
-      
       <div style="display: flex; flex-direction: column;"> <!-- div que reúne label e o input em um bloco -->
         <label for="description">descrição</label> <!-- label para a descrição da nota -->
         <input type="text" id="description"> <!-- input para a descrição da nota -->
       </div> <!-- fecha o div que reúne o label e o input em um bloco -->
-  
       <button type="submit">criar</button> <!-- botão para enviar o conteúdo do formulário -->
     </form> <!-- tag de fechamento do formulário -->
   </div> <!-- tag de fechamento da div que contém o formulário -->
-
   <div id="conteudo-principal-do-site" style="display: flex; flex-direction: column-reverse; padding: 20px;"> <!-- abertura do conteúdo que será gerado dinamicamente -->
     <div style="background: white; display: flex; flex-direction: column; border-width: 3px; border-style: solid; border-color: black; padding: 15px; margin-bottom: 15px;"> <!-- div com conteúdo exemplificativo que define o tema -->
       <img src="https://skycms.s3.amazonaws.com/images/5495100/cachorro-card-1.png" style="width: 100%;"> <!-- imagem de exemplo com cachorro -->
