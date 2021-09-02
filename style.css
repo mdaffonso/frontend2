@@ -80,6 +80,11 @@ main ul li {
   margin: 0.5em 0;
 }
 
+main ul li[data-variant="low-opacity"] {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
 .list-description {
   position: relative;
   font-size: 1.3rem;
