@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> <!-- abertura do html e definição do idioma -->
+<head> <!-- abertura da cabeça do documento -->
+  <meta charset="UTF-8"> <!-- definição do charset para utf-8 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- tag meta para compatibilidade com ie -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- tag meta para ajuste de tamanho inicial do dispositivo -->
+  <title>MyCrappyNotes | 💩</title> <!-- tag de título da página -->
+</head>
+<body style="display: flex; flex-wrap: wrap; margin: 0; background: #efefef;"> <!-- criando o corpo do html -->
+  <div style="padding: 16px;"> <!-- div contendo o formulário -->
+    <img src="logo.png" alt="logo" width="175">
+    <form onsubmit="enviarFormulario(event)"> <!-- formulário que vai incluir os dados na página -->
+      <div style="display: flex; flex-direction: column;">  <!-- div que reúne label e input em um bloco -->
+        <label for="title">título</label> <!-- label para o título -->
+        <input type="text" id="title"> <!-- campo de texto para o título -->
+      </div> <!-- fecha o div que reúne o label e o input em um bloco -->
+      
+      <div style="display: flex; flex-direction: column;"> <!-- div que reúne label e input em um bloco -->
+        <label for="image">url de Imagem</label> <!-- label para a url da imagem -->
+        <input type="text" id="image"> <!-- campo de texto para a url da imagem -->
+      </div> <!-- fecha o div que reúne o label e o input em um bloco -->
+      
+      <div style="display: flex; flex-direction: column;"> <!-- div que reúne label e o input em um bloco -->
+        <label for="description">descrição</label> <!-- label para a descrição da nota -->
+        <input type="text" id="description"> <!-- input para a descrição da nota -->
+      </div> <!-- fecha o div que reúne o label e o input em um bloco -->
+  
+      <button type="submit">criar</button> <!-- botão para enviar o conteúdo do formulário -->
+    </form> <!-- tag de fechamento do formulário -->
+  </div> <!-- tag de fechamento da div que contém o formulário -->
+
+  <div id="conteudo-principal-do-site" style="display: flex; flex-direction: column-reverse; padding: 20px;"> <!-- abertura do conteúdo que será gerado dinamicamente -->
+    <!-- conteúdo gerado dinamicamente vai aqui -->
+  </div> <!-- fechamento do conteúdo gerado dinamicamente -->
+  <script> // tag de script que mantém o javascript
+    function enviarFormulario(evento_doEnvioDo_formulario) { // cria a função que vai se encarregar do envio do formulário
+      evento_doEnvioDo_formulario.preventDefault() // impede o formulário de recarregar a página
+      var TITULO_DO_FORMULARIO = document.getElementById("title").value // pega o valor do input com id "title" e salva na variável TITULO_DO_FORMULARIO
+      var IMAGEM_DO_FORMULARIO = document.getElementById("image").value // pega o valor do input com id "image" e salva na variável IMAGEM_DO_FORMULARIO
+      var DESCRICAO_DO_FORMULARIO = document.getElementById("description").value // pega o valor do input com id "description" e salva na variável DESCRICAO_DO_FORMULARIO
+      var novaDiv = document.createElement("div") // cria uma nova div na variável novaDiv
+      novaDiv.style.display = "flex" // define a propriedade de css display da novaDiv para flex
+      novaDiv.style.flexDirection = "column" // define a propriedade de css flex-direction da novaDiv para column
+      novaDiv.style.borderWidth = "3px" // define a propriedade de css border-width da novaDiv para 3px
+      novaDiv.style.borderStyle = "solid" // define a propriedade de css border-style da novaDiv para solid
+      novaDiv.style.borderColor = "black" // define a propriedade de css border-color da novaDiv para black
+      var imagem_da_novaDiv = document.createElement("img") // cria uma nova tag <img> na variável imagem_da_novaDiv
+      imagem_da_novaDiv.src = IMAGEM_DO_FORMULARIO // define o endereço da imagem para o valor guardado na variável IMAGEM_DO_FORMULARIO
+      imagem_da_novaDiv.style.maxWidth = "100%" // define a propriedade de css max-width da imagem_da_novaDiv para 100%
+      novaDiv.appendChild(imagem_da_novaDiv) // prende a imagem_da_novaDiv na novaDiv
+      novaDiv.appendChild(document.createElement("br")) // cria uma tag <br> para dar espaçamento adicional e a prende na novaDiv após a imagem_da_novaDiv
+      var titulo_da_novaDiv = document.createElement("h2")  // cria uma nova tag <h2> na variável titulo_da_novaDiv
+      titulo_da_novaDiv.innerText = TITULO_DO_FORMULARIO // define o texto do titulo_da_novaDiv para o valor guardado na variável TITULO_DO_FORMULARIO
+      novaDiv.appendChild(titulo_da_novaDiv) // prende o título_da_novaDiv na novaDiv
+      novaDiv.appendChild(document.createElement("br")) // cria uma tag <br> para dar espaçamento adicional e a prende na novaDiv após a imagem_da_novaDiv
+      var texto_da_novaDiv = document.createElement("p") // cria uma nova tag <h2> na variável texto_da_novaDiv
+      texto_da_novaDiv.innerText = DESCRICAO_DO_FORMULARIO // define o texto do texto_da_novaDiv para o valor guardado na variável DESCRICAO_DO_FORMULARIO
+      novaDiv.appendChild(texto_da_novaDiv) // prende o texto_da_novadiv na novaDiv
+      document.getElementById("conteudo-principal-do-site").appendChild(novaDiv) // prende a novaDiv na div com o id conteudo-principal-do-site
+      document.getElementById("title").value = "" // redefine o valor do input com id title
+      document.getElementById("image").value = "" // redefine o valor do input com id image
+      document.getElementById("description").value = "" // redefine o valor do input com id description
+      novaDiv.style.padding = "15px" // define a propriedade de css padding da novaDiv para 15px
+      novaDiv.style.marginBottom = "15px" // define a propriedade de css margin-bottom da novaDiv para 15px
+      alert("nota criada com sucesso") // emite um alerta para avisar ao usuário que a nota foi criada
+      var mais_uma_nota = confirm("deseja criar mais uma nota?") // pergunta para o usuário se ele deseja criar mais uma nota
+      if (mais_uma_nota != false) { // se o usuário não clicar em não, executa a próxima linha
+        document.getElementById("title").focus() // marca o input com id title e dá foco nele
+      } // fecha o bloco condicional
+    } // fecha a função
+  </script> <!-- fechamento da tag de script que mantém o javascript -->
+</body> <!-- fechamento do corpo do documento -->
+</html> <!-- final do html -->
