@@ -78,9 +78,8 @@ body > button[data-checked="true"]::after {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  min-height: 100vh;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background: green;
   font-size: 4rem;
   color: white;
