@@ -60,6 +60,7 @@ body > button[data-checked="true"]::after {
 }
 
 body > button[data-checked="true"]::before {
+  background: rgb(189, 39, 12);
   transform: translate(-50%, -50%) rotate(135deg);
 }
 
@@ -102,17 +103,17 @@ body > button[data-checked="true"]::after {
   border-radius: 10rem;
   max-width: 100vw;
   transition-property: background-color, color, box-shadow;
-  transition: 150ms ease-in-out;
+  transition: 100ms ease-in-out;
 }
 
 #replay:hover {
-  background: orange;
+  background: #00bead;
   color: white;
 }
 
 #replay:focus {
   outline: none;
-  box-shadow: 0 0 0 0.25rem green, 0 0 0 0.5rem black;
+  box-shadow: 0 0 0 0.5rem green, 0 0 0 1rem #00bead;
 }
 
 @media (min-width: 750px) {
