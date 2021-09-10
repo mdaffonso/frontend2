@@ -6,12 +6,13 @@ const frases = [
   "bora lá",
   "vem junto comigo",
   "e sim",
-  "vem comigo",
   "começar a fazer dinheiro",
-  "vou brincar aqui",
+  "brincar com isso",
   "a gente vai falar isso daqui a pouquinho",
   "vocês já devem saber",
-  "próxima aula"
+  "próxima aula",
+  "vocês me conhecem",
+  "trabalhar em cima disso"
 ]
 
 const shuffle = (array) => {
