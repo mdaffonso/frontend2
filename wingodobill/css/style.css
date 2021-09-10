@@ -79,24 +79,28 @@ body > button[data-checked="true"]::after {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   background: green;
   font-size: 4rem;
   color: white;
   display: none;
   place-items: center;
-  z-index: 10;
+  z-index: 100;
 
   place-items: center;
+  overflow: hidden;
 }
 
 #bingo[data-open="true"] {
   display: grid;
+  grid-template-rows: 3fr 2fr;
   animation: fade-in 500ms ease-in-out forwards;
 }
 
 #bingo > h1 {
   font-size: clamp(4rem, 12vw, 12rem);
+  margin: 0;
 }
 
 #replay {
