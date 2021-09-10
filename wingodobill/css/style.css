@@ -30,35 +30,45 @@ body button {
   color: white;
   padding: 4rem 2rem;
   text-transform: uppercase;
+  transition: background-color 200ms ease-in-out;
 }
 
 body button[data-checked="true"] {
-  background: rgb(53, 18, 23);
+  background: rgb(17, 71, 51);
 }
 
-body button[data-checked="true"]::before,
-body button[data-checked="true"]::after {
+body button::before,
+body button::after {
   position: absolute;
   content: "";
   top: 50%;
   left: 50%;
   background: red;
-  width: 50%;
+  width: 12rem;
   height: 2rem;
   border-radius: 10rem;
   box-shadow: 0.5rem 0.5rem 1rem -0.5rem rgba(0, 0, 0, 0.315);
+  transform: translate(-50%, -50%) rotate(0) scale(0);
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition: 200ms ease-in-out;
+}
+
+body button[data-checked="true"]::before,
+body button[data-checked="true"]::after {
+  opacity: 1;
 }
 
 body button[data-checked="true"]::before {
-  transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg) scale(1);
 }
 
 body button[data-checked="true"]::after {
-  transform: translate(-50%, -50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg) scale(1);
 }
 
 #bingo {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
