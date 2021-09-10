@@ -13,7 +13,8 @@ const frases = [
   "próxima aula",
   "vocês me conhecem",
   "trabalhar em cima disso",
-  "fazer upgrades"
+  "fazer upgrades",
+  "dinamicamente"
 ]
 
 const shuffle = (array) => {
@@ -33,6 +34,9 @@ const frasesFinais = shuffle(frases).splice(0, 9)
 
 const bingo = () => {
   document.getElementById("bingo").setAttribute("data-open", "true")
+  document.getElementById("replay").addEventListener("click", () => {
+    document.location.reload()
+  })
 }
 
 const toggleCheck = id => {
