@@ -30,7 +30,12 @@ body > button {
   color: white;
   padding: 4rem 2rem;
   text-transform: uppercase;
-  transition: background-color 200ms ease-in-out;
+  transition-property: background-color, filter;
+  transition: 200ms ease-in-out;
+}
+
+body > button:hover {
+  filter: brightness(1.2);
 }
 
 body > button[data-checked="true"] {
