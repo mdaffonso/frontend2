@@ -48,7 +48,7 @@ body button::after {
   height: 2rem;
   border-radius: 10rem;
   box-shadow: 0.5rem 0.5rem 1rem -0.5rem rgba(0, 0, 0, 0.315);
-  transform: translate(-50%, -50%) rotate(0) scale(0);
+  transform: translate(-50%, -50%) rotate(0);
   opacity: 0;
   transition-property: opacity, transform;
   transition: 200ms ease-in-out;
@@ -60,11 +60,11 @@ body button[data-checked="true"]::after {
 }
 
 body button[data-checked="true"]::before {
-  transform: translate(-50%, -50%) rotate(45deg) scale(1);
+  transform: translate(-50%, -50%) rotate(135deg);
 }
 
 body button[data-checked="true"]::after {
-  transform: translate(-50%, -50%) rotate(-45deg) scale(1);
+  transform: translate(-50%, -50%) rotate(225deg);
 }
 
 #bingo {
