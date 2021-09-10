@@ -5,6 +5,7 @@ Repositório criado para os projetos desenvolvidos na disciplina de front-end 2 
 
 Alternativamente, você pode visitar diretamente os links internos:
 
++ [Wingo do Bill](https://mdaffonso.github.io/frontend2/wingodobill/)
 + [MyCrappyNotes](https://mdaffonso.github.io/frontend2/mycrappynotes/)
 + [MyNotes](https://mynotes-mda.netlify.app/)
 + [Formulário de Login](https://mdaffonso.github.io/frontend2/form/)
