@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Cards</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+<body>
+  <header id="header">
+    <h1><span>Memory</span> Cards</h1>
+    <ul>
+      <li>
+        <button id="btn-new"><img src="img/ico-plus.png" alt="novo card"></button>
+        <form class="floating-blurb" aria-expanded="false" id="form-new">
+          <div class="input-group" data-tag="frente">
+            <input type="text" id="input-front">
+            <p id="front-error"></p>
+          </div>
+          <div class="input-group" data-tag="verso">
+            <input type="text" id="input-back">
+            <p id="back-error"></p>
+          </div>
+          <button type="submit"><img src="img/ico-next.png" alt="enviar"></button>
+        </form>
+      </li>
+      <li>
+        <button id="btn-about"><img src="img/ico-info.png" alt="sobre"></button>
+        <div class="floating-blurb" aria-expanded="false" id="about">
+          <p>Criado por Matheus Dalmas Affonso</p>
+          <p>entre em contato comigo pelo e-mail <a href="mailto:mdaffonso@gmail.com">mdaffonso@gmail.com</a></p>
+        </div>
+      </li>
+    </ul>
+  </header>
+  <main id="main"></main>
+  <script src="js/main.js"></script>
+</body>
+</html>

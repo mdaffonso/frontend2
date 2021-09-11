@@ -1,0 +1,282 @@
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+  --main-bg: rgb(234, 234, 234);
+  --header-bg: rgb(12, 158, 151);
+  --logo: white;
+  --logo-off: var(--main-bg);
+  min-height: 100vh;
+  background: var(--main-bg);
+}
+
+#header {
+  background: var(--header-bg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 2rem;
+}
+
+@media (min-width: 600px) {
+  #header {
+    padding: 1rem 15vw;
+  }
+}
+
+#header h1 {
+  font-family: "Alumni Sans", "Arial", sans-serif;
+  color: var(--logo);
+}
+
+#header h1 span {
+  font-family: inherit;
+  color: var(--logo-off);
+}
+
+#header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  list-style-type: none;
+}
+
+#header ul li {
+  position: relative;
+  margin: 0.5rem;
+}
+
+#header ul li button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#header ul li button img {
+  max-width: 2.5rem;
+  height: auto;
+}
+
+.floating-blurb {
+  isolation: isolate;
+  position: absolute;
+  top: calc(100% + 1.5rem);
+  left: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--logo);
+  border-radius: 0.5rem;
+  -webkit-transform: translate(-75%, 0) scale(1);
+          transform: translate(-75%, 0) scale(1);
+  -webkit-box-shadow: 0.25rem 0.25rem 1rem -0.5rem rgba(0, 0, 0, 0.397);
+          box-shadow: 0.25rem 0.25rem 1rem -0.5rem rgba(0, 0, 0, 0.397);
+  opacity: 1;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
+  z-index: 10;
+}
+
+.floating-blurb[aria-expanded="false"] {
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+
+.floating-blurb::before {
+  --dimensions: 1rem;
+  width: var(--dimensions);
+  height: var(--dimensions);
+  position: absolute;
+  top: -0.5rem;
+  left: 75%;
+  z-index: -1;
+  content: "";
+  background: inherit;
+  -webkit-transform: translateX(-50%) rotate(45deg);
+          transform: translateX(-50%) rotate(45deg);
+}
+
+.floating-blurb p {
+  margin: 1rem;
+}
+
+.floating-blurb .input-group {
+  width: 100%;
+  position: relative;
+}
+
+.floating-blurb .input-group p {
+  background: transparent;
+  color: red;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+.floating-blurb .input-group p:empty {
+  display: none;
+}
+
+.floating-blurb .input-group input {
+  width: 25ch;
+  padding: 0.5rem;
+  border: none;
+  background: var(--main-bg);
+}
+
+.floating-blurb .input-group::before {
+  content: attr(data-tag);
+  position: absolute;
+  top: 0;
+  left: 0.5rem;
+  padding: 0.05rem 0.125rem;
+  background: white;
+  font-size: 0.75rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.floating-blurb img {
+  max-width: 1.5rem !important;
+  height: auto;
+}
+
+#main {
+  padding: 1rem;
+  display: -ms-grid;
+  display: grid;
+  gap: 0.5rem;
+  -ms-grid-columns: (minmax(15rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+@media (min-width: 600px) {
+  #main {
+    padding: 3rem 15vw;
+  }
+}
+
+#main .card-body-outer {
+  width: 100%;
+  height: 10rem;
+  background: transparent;
+  border-radius: 0.5rem;
+  -webkit-perspective: 1000rem;
+          perspective: 1000rem;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+
+#main .card-body-outer[data-delete="true"] {
+  opacity: 0;
+}
+
+#main .card-body-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border: 1px solid lightgrey;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  border-radius: inherit;
+}
+
+#main .card-body-inner img {
+  max-width: 100%;
+  height: auto;
+}
+
+#main .card-body-inner[data-flipped="true"] {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+#main .card-front, #main .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+#main .card-front {
+  background-color: var(--logo);
+  color: black;
+  -webkit-transform: translateZ(2rem);
+          transform: translateZ(2rem);
+}
+
+#main .card-front button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: translateZ(5rem);
+          transform: translateZ(5rem);
+  background: transparent;
+  padding: 0.25rem 0.5rem;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+}
+
+#main .card-back {
+  background-color: dodgerblue;
+  color: white;
+  -webkit-transform: rotateY(180deg) translateZ(2rem);
+          transform: rotateY(180deg) translateZ(2rem);
+}
+/*# sourceMappingURL=style.css.map */
