@@ -251,6 +251,7 @@ body {
           align-items: center;
   overflow: hidden;
   padding: 2rem;
+  word-wrap: break-word;
 }
 
 #main .card-front {
