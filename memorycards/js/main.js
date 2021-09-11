@@ -7,7 +7,7 @@ const _id = id => document.getElementById(id)
 // function:  _ch
 // arguments: parent: HTMLElement; the element that should receive appended children
 //            children: HTMLElement; the children that should be appended to the parent
-// return:    viud
+// return:    void
 // use:       simplifies element.appendChild, allowing for multiple appends at once
 const _ch = (parent, ...children) => {
   for (let child of children) {
