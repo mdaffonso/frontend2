@@ -6,8 +6,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  transition-property: background-color;
-  transition: 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out;
 }
 
 body[data-theme="light"] {
@@ -37,7 +36,7 @@ body[data-theme="dark"] {
   --header-comp-b: rgb(125, 78, 0);
   --logo: rgb(255, 255, 255);
   --logo-off: dodgerblue;
-  --card-bg: var(--blurb-bg);
+  --card-bg: rgb(33, 51, 55);
   --card-font: rgb(255, 255, 255);
   --card-bg-back: dodgerblue;
   --card-font-back: white;
