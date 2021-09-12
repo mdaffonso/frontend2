@@ -83,6 +83,16 @@ body {
 
 a {
   color: var(--link);
+  -webkit-transition: -webkit-box-shadow 100ms linear;
+  transition: -webkit-box-shadow 100ms linear;
+  transition: box-shadow 100ms linear;
+  transition: box-shadow 100ms linear, -webkit-box-shadow 100ms linear;
+}
+
+a:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 0.25rem var(--blurb-bg), 0 0 0 0.5rem var(--link);
+          box-shadow: 0 0 0 0.25rem var(--blurb-bg), 0 0 0 0.5rem var(--link);
 }
 
 #header {
@@ -138,6 +148,16 @@ a {
   background: transparent;
   border: none;
   cursor: pointer;
+  -webkit-transition: -webkit-box-shadow 100ms linear;
+  transition: -webkit-box-shadow 100ms linear;
+  transition: box-shadow 100ms linear;
+  transition: box-shadow 100ms linear, -webkit-box-shadow 100ms linear;
+}
+
+#header ul li > button:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 0.25rem var(--header-bg), 0 0 0 0.5rem var(--link);
+          box-shadow: 0 0 0 0.25rem var(--header-bg), 0 0 0 0.5rem var(--link);
 }
 
 #header ul li > button.btn {
@@ -239,6 +259,38 @@ a {
   border: none;
   margin-left: auto;
   cursor: pointer;
+  position: relative;
+  padding: 0;
+}
+
+.floating-blurb .input-submit::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--blurb-input-border);
+  -webkit-transform: translate(-200%, -70%) scale(0);
+          transform: translate(-200%, -70%) scale(0);
+  -webkit-transition: -webkit-transform 100ms linear;
+  transition: -webkit-transform 100ms linear;
+  transition: transform 100ms linear;
+  transition: transform 100ms linear, -webkit-transform 100ms linear;
+}
+
+.floating-blurb .input-submit:focus::before {
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.175, 0.885, 0.32, 3);
+  transition: -webkit-transform 200ms cubic-bezier(0.175, 0.885, 0.32, 3);
+  transition: transform 200ms cubic-bezier(0.175, 0.885, 0.32, 3);
+  transition: transform 200ms cubic-bezier(0.175, 0.885, 0.32, 3), -webkit-transform 200ms cubic-bezier(0.175, 0.885, 0.32, 3);
+  -webkit-transform: translate(-200%, -70%) scale(1);
+          transform: translate(-200%, -70%) scale(1);
+}
+
+.floating-blurb .input-submit:focus {
+  outline: none;
 }
 
 .floating-blurb .input-group {
@@ -322,12 +374,20 @@ a {
   position: relative;
   border: none;
   opacity: 1;
-  -webkit-transition: opacity 200ms ease-in-out;
-  transition: opacity 200ms ease-in-out;
+  -webkit-transition: opacity 200ms ease-in-out, -webkit-box-shadow 100ms linear;
+  transition: opacity 200ms ease-in-out, -webkit-box-shadow 100ms linear;
+  transition: opacity 200ms ease-in-out, box-shadow 100ms linear;
+  transition: opacity 200ms ease-in-out, box-shadow 100ms linear, -webkit-box-shadow 100ms linear;
 }
 
 #main .card-body-outer[data-delete="true"] {
   opacity: 0;
+}
+
+#main .card-body-outer:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 0.25rem var(--main-bg), 0 0 0 0.5rem var(--card-bg-back);
+          box-shadow: 0 0 0 0.25rem var(--main-bg), 0 0 0 0.5rem var(--card-bg-back);
 }
 
 #main .card-body-inner {
@@ -394,6 +454,13 @@ a {
   font-size: 1.2rem;
   border: none;
   cursor: pointer;
+  border-radius: 0 0.5rem;
+}
+
+#main .card-front button:focus {
+  outline: none;
+  background: var(--card-bg-back);
+  color: var(--card-font-back);
 }
 
 #main .card-back {
@@ -412,6 +479,16 @@ a {
   position: relative;
   margin: 0 auto;
   cursor: pointer;
+  -webkit-transition: -webkit-box-shadow 100ms linear;
+  transition: -webkit-box-shadow 100ms linear;
+  transition: box-shadow 100ms linear;
+  transition: box-shadow 100ms linear, -webkit-box-shadow 100ms linear;
+}
+
+#btn-theme:focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 0.25rem var(--blurb-bg), 0 0 0 0.5rem var(--link);
+          box-shadow: 0 0 0 0.25rem var(--blurb-bg), 0 0 0 0.5rem var(--link);
 }
 
 #btn-theme::before {

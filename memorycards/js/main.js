@@ -311,6 +311,17 @@ const toggleExpand = (id, force) => {
     "false": "true"
   }
 
+  const elementChildren = document.querySelectorAll(`#${id} *`)
+  for(let i = 0; i < elementChildren.length; i++) {
+    if(valueMap[valueToMap] === "false") {
+      elementChildren[i].setAttribute("tabindex", "-1")
+      elementChildren[i].disabled = true
+    } else {
+      elementChildren[i].removeAttribute("tabindex")
+      elementChildren[i].disabled = false
+    }
+  }
+
   element.setAttribute("aria-expanded", valueMap[valueToMap])
 }
 

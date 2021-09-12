@@ -23,22 +23,22 @@
         <button id="btn-new" class="btn new" alt="criar card">+</button>
         <form class="floating-blurb" aria-expanded="false" id="form-new">
           <div class="input-group" data-tag="frente">
-            <input type="text" id="input-front">
+            <input type="text" id="input-front" disabled>
             <p id="front-error"></p>
           </div>
           <div class="input-group" data-tag="verso">
-            <input type="text" id="input-back">
+            <input type="text" id="input-back" disabled>
             <p id="back-error"></p>
           </div>
-          <button type="submit" class="input-submit"><img src="img/ico-next.png" alt="enviar"></button>
+          <button type="submit" class="input-submit" disabled><img src="img/ico-next.png" alt="enviar"></button>
         </form>
       </li>
       <li>
         <button id="btn-about" class="btn about" alt="sobre">i</button>
         <div class="floating-blurb" aria-expanded="false" id="about">
           <p>Criado por Matheus Dalmas Affonso</p>
-          <p>entre em contato comigo pelo e-mail <a href="mailto:mdaffonso@gmail.com">mdaffonso@gmail.com</a></p>
-          <button id="btn-theme"></button>
+          <p>entre em contato comigo pelo e-mail <a href="mailto:mdaffonso@gmail.com" tabindex="-1">mdaffonso@gmail.com</a></p>
+          <button id="btn-theme" disabled></button>
         </div>
       </li>
     </ul>
