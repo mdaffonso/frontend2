@@ -23,11 +23,12 @@ const STATE = JSON.parse(localStorage.getItem("cards")) || []
 // initializes as an empty object. receives error messages from the validator function
 const ERRORS = {}
 
-// global constans: BUTTON_NEW, BUTTON_ABOUT, FORM_NEW
+// global constans: BUTTON_NEW, BUTTON_ABOUT, FORM_NEW, BUTTON_THEME
 // the DOM elements that make up the most important interactive parts of the SPA
 const BUTTON_NEW = _id("btn-new")
 const BUTTON_ABOUT = _id("btn-about")
 const FORM_NEW = _id("form-new")
+const BUTTON_THEME = _id("btn-theme")
 
 // function:  createUID
 // arguments: numberOfChars: number; the string length of the desired id
@@ -357,6 +358,21 @@ const handleFormSubmit = (event) => {
   toggleExpand("form-new", false)
 }
 
+// function:  toggleTheme
+// arguments: none
+// return:    void
+// use:       toggles the page's theme by changing the data-theme attribute on the document's body
+const toggleTheme = () => {
+  const currentTheme = document.body.getAttribute("data-theme")
+  const map = {
+    "light": "dark",
+    "dark": "contrast",
+    "contrast": "light"
+  }
+  document.body.setAttribute("data-theme", map[currentTheme])
+  localStorage.setItem("theme", map[currentTheme])
+}
+
 // initiates the app's functionalities after the DOM is loaded
 window.addEventListener("load", () => {
 
@@ -372,6 +388,9 @@ window.addEventListener("load", () => {
     expandForm("form-new", false)
   })
   
+  // adds a click event listener to the BUTTON_THEME global which toggles the page's theme
+  BUTTON_THEME.addEventListener("click", toggleTheme)
+
   // adds a submit event listener to the FORM_NEW global which handles all internal functionalities of the app
   FORM_NEW.addEventListener("submit", handleFormSubmit)
 

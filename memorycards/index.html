@@ -9,12 +9,18 @@
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <script src="js/main.min.js" defer></script>
 </head>
-<body>
+<body data-theme="light">
+  <script>
+    // automatically sets the theme to the last one chosen by the user before the page loads to avoid transitions
+    if(localStorage.getItem("theme")) {
+      document.body.setAttribute("data-theme", localStorage.getItem("theme"))
+    }
+  </script>
   <header id="header">
     <h1><span>Memory</span> Cards</h1>
     <ul>
       <li>
-        <button id="btn-new"><img src="img/ico-plus.png" alt="novo card"></button>
+        <button id="btn-new" class="btn new" alt="criar card">+</button>
         <form class="floating-blurb" aria-expanded="false" id="form-new">
           <div class="input-group" data-tag="frente">
             <input type="text" id="input-front">
@@ -24,14 +30,15 @@
             <input type="text" id="input-back">
             <p id="back-error"></p>
           </div>
-          <button type="submit"><img src="img/ico-next.png" alt="enviar"></button>
+          <button type="submit" class="input-submit"><img src="img/ico-next.png" alt="enviar"></button>
         </form>
       </li>
       <li>
-        <button id="btn-about"><img src="img/ico-info.png" alt="sobre"></button>
+        <button id="btn-about" class="btn about" alt="sobre">i</button>
         <div class="floating-blurb" aria-expanded="false" id="about">
           <p>Criado por Matheus Dalmas Affonso</p>
           <p>entre em contato comigo pelo e-mail <a href="mailto:mdaffonso@gmail.com">mdaffonso@gmail.com</a></p>
+          <button id="btn-theme"></button>
         </div>
       </li>
     </ul>

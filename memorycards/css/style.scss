@@ -1,20 +1,82 @@
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  transition-property: background-color;
+  transition: 250ms ease-in-out;
+}
+
+body[data-theme="light"] {
+  --main-bg: rgb(234, 234, 234);
+  --header-bg: rgb(223, 223, 223);
+  --header-comp-a: rgb(182, 255, 171);
+  --header-comp-b: white;
+  --logo: black;
+  --logo-off: dodgerblue;
+  --card-bg: white;
+  --card-font: black;
+  --card-bg-back: dodgerblue;
+  --card-font-back: white;
+  --blurb-bg: white;
+  --blurb-input-bg: var(--main-bg);
+  --blurb-input-text: black;
+  --sky: rgb(107, 166, 255);
+  --sun-moon: rgb(251, 255, 0);
+  --link: dodgerblue;
+  --error: red;
+}
+
+body[data-theme="dark"] {
+  --main-bg: rgb(34, 34, 34);
+  --header-bg: rgb(15, 15, 15);
+  --header-comp-a: rgb(70, 155, 0);
+  --header-comp-b: rgb(125, 78, 0);
+  --logo: rgb(255, 255, 255);
+  --logo-off: dodgerblue;
+  --card-bg: var(--blurb-bg);
+  --card-font: rgb(255, 255, 255);
+  --card-bg-back: dodgerblue;
+  --card-font-back: white;
+  --blurb-bg: rgb(29, 38, 41);
+  --blurb-input-bg: rgb(40, 49, 53);
+  --blurb-text: rgb(255, 255, 255);
+  --sky: rgb(18, 11, 35);
+  --sun-moon: rgb(254, 255, 196);
+  --link: dodgerblue;
+  --error: tomato;
+}
+
+body[data-theme="contrast"] {
+  --main-bg: dodgerblue;
+  --header-bg: black;
+  --header-comp-a: dodgerblue;
+  --header-comp-b: dodgerblue;
+  --logo: white;
+  --logo-off: dodgerblue;
+  --card-bg: white;
+  --card-font: black;
+  --card-bg-back: black;
+  --card-font-back: white;
+  --blurb-bg: white;
+  --blurb-input-bg: rgb(171, 214, 255);
+  --blurb-text: black;
+  --sky: dodgerblue;
+  --sun-moon: white;
+  --link: dodgerblue;
+  --error: black;
 }
 
 body {
-  --main-bg: rgb(234, 234, 234);
-  --header-bg: rgb(12, 158, 151);
-  --logo: white;
-  --logo-off: var(--main-bg);
-
   min-height: 100vh;
   background: var(--main-bg);
+}
+
+a {
+  color: var(--link);
 }
 
 #header {
@@ -48,14 +110,44 @@ body {
       position: relative;
       margin: 0.5rem;
 
-      button {
+      & > button {
         background: transparent;
         border: none;
         cursor: pointer;
 
-        img {
-          max-width: 2.5rem;
-          height: auto;
+        &.btn {
+          font-family: 'Ubuntu Mono', monospace;
+          isolation: isolate;
+          color: var(--logo);
+          border-radius: 50%;
+          width: 2.75rem;
+          height: 2.75rem;
+          overflow: hidden;
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 50%;
+            left: 50%;
+            background-color: rgba(0, 0, 0, 0.05);
+            transform: translate(-12.5%, -12.5%) rotate(45deg);
+            z-index: -1;
+          }
+        }
+
+        &.new {
+          background-color: var(--header-comp-a);
+          padding-bottom: 0.25rem;
+          font-size: 2rem;
+        }
+
+        &.about {
+          background-color: var(--header-comp-b);
+          font-size: 1.5rem;
+          padding-bottom: 0.125rem;
         }
       }
     }
@@ -69,10 +161,11 @@ body {
   left: 50%;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 0.5rem;
+  align-items: flex-start;
+  gap: 0.75rem;
   padding: 1rem;
-  background: var(--logo);
+  background: var(--blurb-bg);
+  color: var(--blurb-text);
   border-radius: 0.5rem;
   transform: translate(-75%, 0) scale(1);
   box-shadow: 0.25rem 0.25rem 1rem -0.5rem rgba(0, 0, 0, 0.397);
@@ -107,13 +200,20 @@ body {
     margin: 1rem;
   }
 
+  .input-submit {
+    background: transparent;
+    border: none;
+    margin-left: auto;
+    cursor: pointer;
+  }
+
   .input-group {
     width: 100%;
     position: relative;
 
     p {
       background: transparent;
-      color: red;
+      color: var(--error);
       font-size: 0.75rem;
       padding: 0.5rem;
       margin: 0;
@@ -127,7 +227,8 @@ body {
       width: 25ch;
       padding: 0.5rem;
       border: none;
-      background: var(--main-bg);
+      background: var(--blurb-input-bg);
+      color: var(--blurb-text);
     }
 
     &::before {
@@ -136,7 +237,8 @@ body {
       top: 0;
       left: 0.5rem;
       padding: 0.05rem 0.125rem;
-      background: white;
+      background: var(--blurb-bg);
+      color: var(--blurb-input-text);
       font-size: 0.75rem;
       transform: translateY(-50%);
     }
@@ -182,7 +284,6 @@ body {
     width: 100%;
     height: 100%;
     text-align: center;
-    border: 1px solid lightgrey;
     transition: transform 0.2s;
     transform-style: preserve-3d;
     border-radius: inherit;
@@ -210,11 +311,12 @@ body {
     overflow: hidden;
     padding: 2rem;
     word-wrap: break-word;
+    word-break: break-all;
   }
   
   .card-front {
-    background-color: var(--logo);
-    color: black;
+    background-color: var(--card-bg);
+    color: var(--card-font);
     transform: translateZ(2rem);
 
     button {
@@ -231,8 +333,52 @@ body {
   }
   
   .card-back {
-    background-color: dodgerblue;
-    color: white;
+    background-color: var(--card-bg-back);
+    color: var(--card-font-back);
     transform: rotateY(180deg) translateZ(2rem);
   }
+}
+
+#btn-theme {
+  --inset: 20%;
+  padding: 1rem;
+  background-color: var(--sky);
+  border: none;
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto;
+  cursor: pointer;
+  
+  &::before {
+    position: absolute;
+    content: "";
+    top: var(--inset);
+    left: var(--inset);
+    right: var(--inset);
+    bottom: var(--inset);
+    background: var(--sun-moon);
+    border-radius: 50%;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: var(--inset);
+    left: 0;
+    right: 45%;
+    bottom: var(--inset);
+    border-radius: 50%;
+    background: inherit;
+    transform: translateX(-50%) scale(0);
+    transition: transform 250ms ease-in-out, border-radius 250ms ease-in-out;
+  }
+}
+
+[data-theme="dark"] #btn-theme::after {
+  transform: translateX(0) scale(1);
+}
+
+[data-theme="contrast"] #btn-theme::after {
+  border-radius: 50% 0 0 50%;
+  transform: translateX(0) scale(1);
 }
