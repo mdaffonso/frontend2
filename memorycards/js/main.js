@@ -74,7 +74,8 @@ const checkImage = (url) => {
 }
 
 // function:  validate
-// arguments: key, text
+// arguments: key: string; the key to be pushed to the errors object if validation fails
+//            text: string; the text being validated
 // return:    void
 // use:       checks the text provided against a sequence of validators, writing errors to the ERROR global
 const validate = (key, text) => {
