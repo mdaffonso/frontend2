@@ -23,7 +23,9 @@ body[data-theme="light"] {
   --card-font-back: white;
   --blurb-bg: white;
   --blurb-input-bg: var(--main-bg);
-  --blurb-input-text: black;
+  --blurb-input-border: var(--blurb-text);
+  --blurb-input-border-focus: dodgerblue;
+  --blurb-text: black;
   --sky: rgb(107, 166, 255);
   --sun-moon: rgb(251, 255, 0);
   --link: dodgerblue;
@@ -43,6 +45,8 @@ body[data-theme="dark"] {
   --card-font-back: white;
   --blurb-bg: rgb(29, 38, 41);
   --blurb-input-bg: rgb(40, 49, 53);
+  --blurb-input-border: rgb(98, 98, 98);
+  --blurb-input-border-focus: dodgerblue;
   --blurb-text: rgb(255, 255, 255);
   --sky: rgb(18, 11, 35);
   --sun-moon: rgb(254, 255, 196);
@@ -62,7 +66,9 @@ body[data-theme="contrast"] {
   --card-bg-back: black;
   --card-font-back: white;
   --blurb-bg: white;
-  --blurb-input-bg: rgb(171, 214, 255);
+  --blurb-input-bg: rgb(222, 239, 255);
+  --blurb-input-border: var(--blurb-text);
+  --blurb-input-border-focus: dodgerblue;
   --blurb-text: black;
   --sky: dodgerblue;
   --sun-moon: white;
@@ -256,8 +262,20 @@ a {
   width: 25ch;
   padding: 0.5rem;
   border: none;
+  border-bottom: 1px solid var(--blurb-input-border);
   background: var(--blurb-input-bg);
   color: var(--blurb-text);
+  -webkit-transition: border 150ms ease-in-out, -webkit-box-shadow 150ms ease-in-out;
+  transition: border 150ms ease-in-out, -webkit-box-shadow 150ms ease-in-out;
+  transition: border 150ms ease-in-out, box-shadow 150ms ease-in-out;
+  transition: border 150ms ease-in-out, box-shadow 150ms ease-in-out, -webkit-box-shadow 150ms ease-in-out;
+}
+
+.floating-blurb .input-group input:focus {
+  -webkit-box-shadow: 0 2px 0 -1px var(--blurb-input-border);
+          box-shadow: 0 2px 0 -1px var(--blurb-input-border);
+  border-bottom-color: var(--blurb-input-border-focus);
+  outline: none;
 }
 
 .floating-blurb .input-group::before {
