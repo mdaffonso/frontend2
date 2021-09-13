@@ -208,7 +208,7 @@ const render = async (object) => {
           }
           
           const currentState = cardInner.getAttribute("data-flipped")
-          const allCards = document.querySelectorAll(".card-body-inner")
+          const allCards = document.querySelectorAll(".card-body-inner[data-flipped='true']")
           allCards.forEach(card => card.setAttribute("data-flipped", "false"))
           cardInner.setAttribute("data-flipped", map[currentState])
         }
