@@ -53,13 +53,13 @@ const createUID = (numberOfChars) => {
 // return:    promise
 // use:       checks if the URL provided can be resolved as a valid image
 const checkImage = (url) => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
       const timeout = 5000
       const img = new Image()
       let timer
       img.onerror = img.onabort = () => {
           clearTimeout(timer)
-          resolve("error")
+          reject("error")
       }
       img.onload = () => {
           clearTimeout(timer)
@@ -67,7 +67,7 @@ const checkImage = (url) => {
       }
       timer = setTimeout(() => {
           img.src = "//!!!!/test.jpg"
-          resolve("timeout")
+          reject("timeout")
       }, timeout)
       img.src = url
   });
@@ -81,7 +81,7 @@ const checkImage = (url) => {
 const validate = (key, text) => {
   delete ERRORS[key]
   if (!text.trim()) ERRORS[key] = "O campo não pode ficar em branco"
-  if (text.length > 75) ERRORS[key] = "O campo não pode ter mais de 75 caracteres"
+  if (text.length > 150) ERRORS[key] = "O campo não pode ter mais de 150 caracteres"
 }
 
 // function:  sendToLocalStorage
@@ -158,12 +158,13 @@ const removeCard = (id) => {
 //            and an HTMLHeadingElement if negative
 const makeImageOrText = async (value) => {
   let newElement
-  if(await checkImage(value) === "success") {
+  try {
+    await checkImage(value)
     newElement = createElement({
       tag: "img",
       src: value
     })
-  } else {
+  } catch(error) {
     newElement = createElement({
       tag: "h3",
       textContent: value
