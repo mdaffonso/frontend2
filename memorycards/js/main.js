@@ -81,7 +81,15 @@ const checkImage = (url) => {
 const validate = async (key, text) => {
   const limit = 100
   delete ERRORS[key]
-  if (await checkImage(text)) return
+  let imageResult
+  try {
+    imageResult = await checkImage(text)
+  } catch (error) {
+    imageResult = error
+  }
+
+  if(imageResult === "success") return
+
   if (!text.trim()) ERRORS[key] = "O campo não pode ficar em branco"
   if (text.length > limit) ERRORS[key] = `O campo não pode ter mais de ${limit} caracteres`
 }
@@ -356,15 +364,19 @@ const clearErrors = () => {
 // arguments: event: DOMEvent
 // return:    void
 // use:       validates form inputs, creates the corresponding card, resets the form and closes its interface
-const handleFormSubmit = (event) => {
+const handleFormSubmit = async (event) => {
   event.preventDefault()
   clearErrors()
 
   const front = _id("input-front").value
   const back = _id("input-back").value
 
-  validate("front-error", front)
-  validate("back-error", back)
+  try {
+    await validate("front-error", front)
+    await validate("back-error", back)
+  } catch (error) {
+    console.error(error)
+  }
 
   if (Object.keys(ERRORS).length > 0) {
     displayErrors()
