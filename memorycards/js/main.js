@@ -78,10 +78,12 @@ const checkImage = (url) => {
 //            text: string; the text being validated
 // return:    void
 // use:       checks the text provided against a sequence of validators, writing errors to the ERROR global
-const validate = (key, text) => {
+const validate = async (key, text) => {
+  const limit = 100
   delete ERRORS[key]
+  if (await checkImage(text)) return
   if (!text.trim()) ERRORS[key] = "O campo não pode ficar em branco"
-  if (text.length > 150) ERRORS[key] = "O campo não pode ter mais de 150 caracteres"
+  if (text.length > limit) ERRORS[key] = `O campo não pode ter mais de ${limit} caracteres`
 }
 
 // function:  sendToLocalStorage
