@@ -104,6 +104,13 @@ a:focus {
   color: var(--blurb-input-border);
   font-size: 1.5rem;
   line-height: 1.5;
+  margin: 1em;
+}
+
+@media (min-width: 600px) {
+  .no-cards {
+    margin: 0;
+  }
 }
 
 .no-cards[data-hide="true"] {
