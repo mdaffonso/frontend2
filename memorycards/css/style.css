@@ -499,10 +499,6 @@ a:focus {
           transform: rotateY(180deg) translateZ(2rem);
 }
 
-#main .card-back[aria-expanded="false"] {
-  display: none;
-}
-
 #btn-theme {
   --inset: 20%;
   padding: 1rem;

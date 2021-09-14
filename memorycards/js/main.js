@@ -227,8 +227,9 @@ const render = async (object) => {
           const allCards = document.querySelectorAll(".card-body-inner[data-flipped='true']")
           const allBacks = document.querySelectorAll(".card-back[aria-expanded='true']")
           allCards.forEach(card => card.setAttribute("data-flipped", "false"))
-          allBacks.forEach(back => back.setAttribute("aria-expanded", "false"))
           cardInner.setAttribute("data-flipped", map[currentState])
+          
+          allBacks.forEach(back => back.setAttribute("aria-expanded", "false"))
           backStructure.setAttribute("aria-expanded", map[currentState])
         }
       }
