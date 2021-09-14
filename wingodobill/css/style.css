@@ -139,7 +139,7 @@ body > button[data-checked="true"]::after {
 @media (min-width: 750px) {
   body {
     padding: 3rem;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 33%);
   }
 }
 
