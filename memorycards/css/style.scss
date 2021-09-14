@@ -424,6 +424,10 @@ a {
     background-color: var(--card-bg-back);
     color: var(--card-font-back);
     transform: rotateY(180deg) translateZ(2rem);
+
+    &[aria-expanded="false"] {
+      display: none;
+    }
   }
 }
 

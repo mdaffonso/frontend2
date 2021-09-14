@@ -192,13 +192,13 @@ const makeImageOrText = async (value) => {
 //            }
 // return:    void
 // use:       appends the following structure to the #main DOM element:
-//            <button id={object.id} class="card-body-outer">
+//            <button id={object.id} class="card-body-outer" aria-label="card">
 //              <div class="card-body-inner" data-flipped="false">  
 //                <div class="card-front">
 //                  <h3>{object.front}</h3> | <img src={object.front} />
-//                  <button>×</button>
+//                  <button aria-label="excluir card">×</button>
 //                </div>
-//                <div class="card-front">
+//                <div class="card-back" aria-expanded="false">
 //                  <h3>{object.back}</h3> | <img src={object.back} />
 //                </div>  
 //              </div>
@@ -208,6 +208,12 @@ const render = async (object) => {
     tag: "button",
     id: object.id,
     classList: ["card-body-outer"],
+    attributes: [
+      {
+        key: "aria-label",
+        value: "card"
+      }
+    ],
     events: [
       {
         type: "click", 
@@ -219,8 +225,11 @@ const render = async (object) => {
           
           const currentState = cardInner.getAttribute("data-flipped")
           const allCards = document.querySelectorAll(".card-body-inner[data-flipped='true']")
+          const allBacks = document.querySelectorAll(".card-back[aria-expanded='true']")
           allCards.forEach(card => card.setAttribute("data-flipped", "false"))
+          allBacks.forEach(back => back.setAttribute("aria-expanded", "false"))
           cardInner.setAttribute("data-flipped", map[currentState])
+          backStructure.setAttribute("aria-expanded", map[currentState])
         }
       }
     ]
@@ -229,6 +238,12 @@ const render = async (object) => {
   const closeButton = createElement({
     tag: "button",
     textContent: "×",
+    attributes: [
+      {
+        key: "aria-label",
+        value: "excluir card"
+      }
+    ],
     events: [
       {
         type: "click",
@@ -254,7 +269,17 @@ const render = async (object) => {
   
   const backStructure = createElement({
     tag: "div",
-    classList: ["card-back"]
+    classList: ["card-back"],
+    attributes: [
+      {
+        key: "aria-expanded",
+        value: "false"
+      },
+      {
+        key: "aria-live",
+        value: "assertive"
+      }
+    ]
   })
   
   const frontContent = await makeImageOrText(object.front)
@@ -265,7 +290,6 @@ const render = async (object) => {
   _ch(cardInner, frontStructure, backStructure)
   _ch(frontStructure, frontContent, closeButton)
   _ch(backStructure, backContent)
-
 }
 
 // function:  reset

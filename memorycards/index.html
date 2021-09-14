@@ -20,25 +20,25 @@
     <h1><span>Memory</span> Cards</h1>
     <ul>
       <li>
-        <button id="btn-new" class="btn new" title="criar card">+</button>
+        <button id="btn-new" class="btn new" aria-label="criar card">+</button>
         <form class="floating-blurb" aria-expanded="false" id="form-new">
           <div class="input-group" data-tag="frente">
-            <input type="text" id="input-front" disabled>
+            <input type="text" id="input-front" aria-label="frente" disabled>
             <p id="front-error"></p>
           </div>
           <div class="input-group" data-tag="verso">
-            <input type="text" id="input-back" disabled>
+            <input type="text" id="input-back" aria-label="verso" disabled>
             <p id="back-error"></p>
           </div>
-          <button type="submit" class="input-submit" disabled><img src="img/ico-next.png" alt="enviar"></button>
+          <button type="submit" class="input-submit" aria-label="enviar" disabled><img src="img/ico-next.png" alt="enviar"></button>
         </form>
       </li>
       <li>
-        <button id="btn-about" class="btn about" title="sobre">i</button>
+        <button id="btn-about" class="btn about" aria-label="sobre">i</button>
         <div class="floating-blurb" aria-expanded="false" id="about">
           <p>Criado por Matheus Dalmas Affonso</p>
           <p>entre em contato comigo pelo e-mail <a href="mailto:mdaffonso@gmail.com" tabindex="-1">mdaffonso@gmail.com</a></p>
-          <button id="btn-theme" disabled title="alternar tema"></button>
+          <button id="btn-theme" disabled aria-label="alternar tema"></button>
         </div>
       </li>
     </ul>
