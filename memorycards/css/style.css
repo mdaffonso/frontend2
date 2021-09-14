@@ -100,6 +100,56 @@ a:focus {
           box-shadow: 0 0 0 0.25rem var(--blurb-bg), 0 0 0 0.5rem var(--link);
 }
 
+.no-cards {
+  color: var(--blurb-input-border);
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.no-cards[data-hide="true"] {
+  display: none;
+}
+
+.no-cards span {
+  display: inline-block;
+  padding: 0.25rem;
+  border-radius: 50%;
+  background: var(--header-comp-a);
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  -webkit-box-shadow: 0 0 0 1px var(--card-font), 0.125rem 0.125rem 0.25rem -0.2rem var(--logo);
+          box-shadow: 0 0 0 1px var(--card-font), 0.125rem 0.125rem 0.25rem -0.2rem var(--logo);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.no-cards span::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  background-color: rgba(0, 0, 0, 0.05);
+  -webkit-transform: translate(-12.5%, -12.5%) rotate(45deg);
+          transform: translate(-12.5%, -12.5%) rotate(45deg);
+  z-index: -1;
+}
+
+.no-cards span::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "+";
+  color: var(--logo);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding-bottom: 0.15rem;
+}
+
 #header {
   background: var(--header-bg);
   display: -webkit-box;

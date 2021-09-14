@@ -96,6 +96,19 @@ const validate = async (key, text) => {
   if (text.length > limit) ERRORS[key] = `O campo não pode ter mais de ${limit} caracteres`
 }
 
+// function:  showHideEmptyTooltip
+// arguments: none
+// return:    void
+// use:       toggles the visibility of the first paragraph of the main tag
+const showHideEmptyTooltip = () => {
+  const stateLengthToBooleanString = `${!!STATE.length}`
+  const map = {
+    "true": "true",
+    "false": "false"
+  }
+  _id("empty-tooltip").setAttribute("data-hide", map[stateLengthToBooleanString])
+}
+
 // function:  sendToLocalStorage
 // arguments: none
 // return:    void
@@ -161,6 +174,7 @@ const removeCard = (id) => {
     _id(id).remove()
   }, 200)
   sendToLocalStorage()
+  setTimeout(showHideEmptyTooltip, 200)
 }
 
 // function:  makeImageOrText
@@ -412,6 +426,7 @@ const handleFormSubmit = async (event) => {
 
   reset("input-front", "input-back")
   createCard(front, back)
+  showHideEmptyTooltip()
   toggleExpand("form-new", false)
 }
 
@@ -455,4 +470,6 @@ window.addEventListener("load", () => {
   for (let card of STATE) {
     render(card)
   }
+
+  showHideEmptyTooltip()
 })
