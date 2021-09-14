@@ -81,6 +81,10 @@ body {
   background: var(--main-bg);
 }
 
+img {
+  vertical-align: bottom;
+}
+
 a {
   color: var(--link);
   -webkit-transition: -webkit-box-shadow 100ms linear;
@@ -285,8 +289,8 @@ a:focus {
   transition: -webkit-transform 200ms cubic-bezier(0.175, 0.885, 0.32, 3);
   transition: transform 200ms cubic-bezier(0.175, 0.885, 0.32, 3);
   transition: transform 200ms cubic-bezier(0.175, 0.885, 0.32, 3), -webkit-transform 200ms cubic-bezier(0.175, 0.885, 0.32, 3);
-  -webkit-transform: translate(-200%, -70%) scale(1);
-          transform: translate(-200%, -70%) scale(1);
+  -webkit-transform: translate(-200%, -50%) scale(1);
+          transform: translate(-200%, -50%) scale(1);
 }
 
 .floating-blurb .input-submit:focus {
