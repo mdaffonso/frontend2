@@ -82,7 +82,8 @@ body {
 }
 
 img {
-  vertical-align: bottom;
+  display: block;
+  max-width: 100%;
 }
 
 a {
