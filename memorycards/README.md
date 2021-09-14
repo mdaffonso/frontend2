@@ -36,4 +36,5 @@ e desvirando qualquer outro card que esteja com o verso visível. Somente um car
 
 Os cards são armazenados em uma matriz de objetos em formato JSON no armazenamento local do navegador.
 
-[Memory Cards no Github Pages](https://mdaffonso.github.io/frontend2/memorycards)
+## Link
+[Veja o Memory Cards no Github Pages](https://mdaffonso.github.io/frontend2/memorycards)
