@@ -23,12 +23,13 @@ const STATE = JSON.parse(localStorage.getItem("cards")) || []
 // initializes as an empty object. receives error messages from the validator function
 const ERRORS = {}
 
-// global constans: BUTTON_NEW, BUTTON_ABOUT, FORM_NEW, BUTTON_THEME
+// global constans: BUTTON_NEW, BUTTON_ABOUT, FORM_NEW, BUTTON_THEME, BUTTON_EMPTY
 // the DOM elements that make up the most important interactive parts of the SPA
 const BUTTON_NEW = _id("btn-new")
 const BUTTON_ABOUT = _id("btn-about")
 const FORM_NEW = _id("form-new")
 const BUTTON_THEME = _id("btn-theme")
+const BUTTON_EMPTY = _id("empty-tooltip").querySelector("button")
 
 // function:  createUID
 // arguments: numberOfChars: number; the string length of the desired id
@@ -448,11 +449,13 @@ const toggleTheme = () => {
 // initiates the app's functionalities after the DOM is loaded
 window.addEventListener("load", () => {
 
-  // adds a click event listener to the BUTTON_NEW global which toggles the form and closes the about floating blurb
-  BUTTON_NEW.addEventListener("click", () => {
-    expandForm("form-new")
-    toggleExpand("about", false)
-  })
+  // adds a click event listener to the BUTTON_NEW and BUTTON_EMPTY globals which toggles the form and closes the about floating blurb
+  for (let button of [BUTTON_NEW, BUTTON_EMPTY]) {
+    button.addEventListener("click", () => {
+      expandForm("form-new")
+      toggleExpand("about", false)
+    })
+  }
   
   // adds a click event listener to the BUTTON_ABOUT global which toggles the about floating blurb and closes the form
   BUTTON_ABOUT.addEventListener("click", () => {

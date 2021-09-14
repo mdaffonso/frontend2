@@ -110,9 +110,9 @@ a:focus {
   display: none;
 }
 
-.no-cards span {
+.no-cards button {
   display: inline-block;
-  padding: 0.25rem;
+  padding: 0;
   border-radius: 50%;
   background: var(--header-comp-a);
   width: 2rem;
@@ -124,9 +124,12 @@ a:focus {
           box-shadow: 0 0 0 1px var(--card-font), 0.125rem 0.125rem 0.25rem -0.2rem var(--logo);
   isolation: isolate;
   overflow: hidden;
+  border: none;
+  font-size: inherit;
+  cursor: pointer;
 }
 
-.no-cards span::before {
+.no-cards button::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -139,7 +142,7 @@ a:focus {
   z-index: -1;
 }
 
-.no-cards span::after {
+.no-cards button::after {
   position: absolute;
   top: 50%;
   left: 50%;
