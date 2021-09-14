@@ -59,6 +59,7 @@ const checkImage = (url) => {
       let timer
       img.onerror = img.onabort = () => {
           clearTimeout(timer)
+          console.clear()
           reject("error")
       }
       img.onload = () => {
@@ -67,6 +68,7 @@ const checkImage = (url) => {
       }
       timer = setTimeout(() => {
           img.src = "//!!!!/test.jpg"
+          console.clear()
           reject("timeout")
       }, timeout)
       img.src = url
@@ -176,7 +178,7 @@ const makeImageOrText = async (value) => {
     })
   } catch(error) {
     newElement = createElement({
-      tag: "h3",
+      tag: "h2",
       textContent: value
     })
   }
@@ -195,11 +197,11 @@ const makeImageOrText = async (value) => {
 //            <button id={object.id} class="card-body-outer" aria-label="card">
 //              <div class="card-body-inner" data-flipped="false">  
 //                <div class="card-front">
-//                  <h3>{object.front}</h3> | <img src={object.front} />
+//                  <h2>{object.front}</h2> | <img src={object.front} />
 //                  <button aria-label="excluir card">×</button>
 //                </div>
 //                <div class="card-back" aria-expanded="false">
-//                  <h3>{object.back}</h3> | <img src={object.back} />
+//                  <h2>{object.back}</h2> | <img src={object.back} />
 //                </div>  
 //              </div>
 //            </button>

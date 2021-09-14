@@ -465,6 +465,10 @@ a:focus {
   word-break: break-all;
 }
 
+#main .card-front h2, #main .card-back h2 {
+  font-size: 1rem;
+}
+
 #main .card-front {
   background-color: var(--card-bg);
   color: var(--card-font);
