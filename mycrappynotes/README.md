@@ -14,7 +14,7 @@ do curso Certified Tech Developer da Digital House reunindo o conhecimento minis
 + declarção de variáveis
 + declaração de funções
 
-Data:         1º de agosto de 2021
+Data:         1º de agosto de 2021  
 Professor:    William Pantoja Silva
 
 Este projeto foi feito após a rejeição da [sua versão original](http://mynotes-mda.netlify.app/), desenvolvida
