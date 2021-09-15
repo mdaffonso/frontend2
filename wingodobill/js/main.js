@@ -17,6 +17,7 @@ const frases = [
   "dinamicamente",
   "orientação a projeto",
   "trocar figurinhas",
+  "convergente",
 ]
 
 const shuffle = (array) => {
