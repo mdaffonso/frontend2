@@ -33,6 +33,8 @@ body > button {
   text-transform: uppercase;
   transition-property: background-color, filter;
   transition: 200ms ease-in-out;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 body > button:hover {
