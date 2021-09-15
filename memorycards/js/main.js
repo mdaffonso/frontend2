@@ -37,7 +37,7 @@ const BUTTON_EMPTY = _id("empty-tooltip").querySelector("button")
 // use:       makes a unique HTML-valid string id compared to other objects in the STATE global
 const createUID = (numberOfChars) => {
   const validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-  let randomId = validChars[Math.floor(Math.random() * validChars.length-10)]
+  let randomId = validChars[Math.floor(Math.random() * (validChars.length-10))]
   for (let i = 1; i < numberOfChars; i++) {
     randomId += validChars[Math.floor(Math.random() * validChars.length)]
   }
