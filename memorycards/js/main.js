@@ -23,6 +23,10 @@ const STATE = JSON.parse(localStorage.getItem("cards")) || []
 // initializes as an empty object. receives error messages from the validator function
 const ERRORS = {}
 
+// global constant: KEY_LOG
+// initializes as an empty array. receives user key presses from the mapKeys function
+const KEY_LOG = []
+
 // global constans: BUTTON_NEW, BUTTON_ABOUT, FORM_NEW, BUTTON_THEME, BUTTON_EMPTY
 // the DOM elements that make up the most important interactive parts of the SPA
 const BUTTON_NEW = _id("btn-new")
@@ -446,6 +450,37 @@ const toggleTheme = () => {
   localStorage.setItem("theme", map[currentTheme])
 }
 
+// function:  mapKeys
+// arguments: e: DOMEvent
+// return:    void
+// use:       maps keyboard shortcuts
+const mapKeys = (e) => {
+  KEY_LOG[e.key] = e.type == 'keydown';
+
+  const keyMaps = [
+    { 
+      condition: (KEY_LOG["Control"] && KEY_LOG["Enter"]) || (KEY_LOG["Control"] && KEY_LOG["+"]),
+      callback: () => {
+        expandForm("form-new")
+        toggleExpand("about", false)
+      }
+    },
+
+    {
+      condition: KEY_LOG["Escape"],
+      callback: () => {
+        expandForm("form-new", false)
+        toggleExpand("about", false)
+      }
+    }
+  ]
+
+  for (let keyMap of keyMaps) {
+    if (keyMap.condition)
+    keyMap.callback()
+  }
+}
+
 // initiates the app's functionalities after the DOM is loaded
 window.addEventListener("load", () => {
 
@@ -468,6 +503,10 @@ window.addEventListener("load", () => {
 
   // adds a submit event listener to the FORM_NEW global which handles all internal functionalities of the app
   FORM_NEW.addEventListener("submit", handleFormSubmit)
+
+  // adds window event listeners for keyboard shortcuts
+  window.addEventListener("keydown", mapKeys)
+  window.addEventListener("keyup", mapKeys)
 
   // renders the cards from localStorage
   for (let card of STATE) {
