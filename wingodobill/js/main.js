@@ -36,7 +36,14 @@ const shuffle = (array) => {
 const frasesFinais = shuffle(frases).splice(0, 9)
 
 const bingo = () => {
-  document.getElementById("bingo").setAttribute("data-open", "true")
+  const frasesDiv = document.getElementById("frases")
+  const bingo = document.getElementById("bingo")
+  for (let frase of frases) {
+    const newSpan = document.createElement("span")
+    newSpan.innerText = frase
+    frasesDiv.appendChild(newSpan)
+  }
+  bingo.setAttribute("data-open", "true")
   document.getElementById("replay").addEventListener("click", () => {
     document.location.reload()
   })

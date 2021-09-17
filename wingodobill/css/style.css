@@ -81,6 +81,7 @@ body > button[data-checked="true"]::after {
   left: 0;
   right: 0;
   bottom: 0;
+  padding: 2rem;
   background: green;
   font-size: 4rem;
   color: white;
@@ -94,7 +95,7 @@ body > button[data-checked="true"]::after {
 
 #bingo[data-open="true"] {
   display: grid;
-  grid-template-rows: 3fr 2fr;
+  grid-template-rows: 3fr 1fr 2fr;
   animation: fade-in 500ms ease-in-out forwards;
 }
 
@@ -135,6 +136,22 @@ body > button[data-checked="true"]::after {
   transform: translateX(-50%);
   z-index: 5;
   pointer-events: none;
+}
+
+#frases {
+  font-size: 1rem;
+  max-width: 75ch;
+  text-align: center;
+}
+
+#frases > span {
+  display: inline-block;
+  color: black;
+  background: #d0f600;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10rem;
+  break-inside: avoid;
 }
 
 @media (min-width: 750px) {
