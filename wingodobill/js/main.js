@@ -38,7 +38,7 @@ const frasesFinais = shuffle(frases).splice(0, 9)
 const bingo = () => {
   const frasesDiv = document.getElementById("frases")
   const bingo = document.getElementById("bingo")
-  for (let frase of frases) {
+  for (let frase of frasesFinais) {
     const newSpan = document.createElement("span")
     newSpan.innerText = frase
     frasesDiv.appendChild(newSpan)
