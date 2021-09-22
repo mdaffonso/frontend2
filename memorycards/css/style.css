@@ -557,7 +557,6 @@ kbd {
   overflow: hidden;
   padding: 2rem;
   word-wrap: break-word;
-  word-break: break-all;
 }
 
 #main .card-front h2, #main .card-back h2 {

@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+  background: rgb(248, 248, 248);
+}
+
+header, main {
+  padding: 1rem;
+}
+
+.task {
+  display: grid;
+  grid-template-columns: 2rem 1fr 2rem;
+  max-width: 50ch;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 1rem -0.5rem rgba(0, 0, 0, 0.25);
+  margin: 0.5rem 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+.task[data-transition="true"] {
+  opacity: 0;
+}
+
+.task[data-done="true"] {
+  opacity: 0.5;
+}
+
+.task > p {
+  text-align: right;
+  font-size: 0.75rem;
+  margin-top: 1rem;
+}
+
+.task > p:not(:empty)::before {
+  content: "concluir até ";
+  opacity: 0.5;
+}
+
+.due-date {
+  grid-column: 1 / 4;
+}
