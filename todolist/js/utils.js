@@ -1,7 +1,3 @@
-// function:  createUID
-// arguments: numberOfChars: number; the string length of the desired id
-// return:    string
-// use:       makes a unique HTML-valid string id compared to other objects in the STATE global
 export const createUID = (numberOfChars) => {
   const validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
   let randomId = validChars[Math.floor(Math.random() * (validChars.length-10))]
