@@ -15,9 +15,14 @@ const init = (state) => {
 _("form").addEventListener("submit", formSubmitHandler)
 
 window.addEventListener("load", () => { init(state) })
+window.addEventListener("click", () => { toggleSettings(false) })
 
 _(".btn-restore").addEventListener("click", () => { execute(Actions.RECOVER_TASK) })
-_("#settings-button").addEventListener("click", toggleSettings)
+_("#settings-button").addEventListener("click", (event) => {
+  event.stopPropagation()
+  toggleSettings()
+})
+_("#settings-blurb").addEventListener("click", (event) => event.stopPropagation())
 _("#theme-button").addEventListener("click", toggleTheme)
 
 _("#due-date").setAttribute("min", createMinDateString())

@@ -38,10 +38,10 @@ body[data-theme="dark"] {
   --shadow: rgba(105, 105, 105, 0.25);
   --check-outline: rgb(0, 107, 85);
   --primary-accent: rgb(0, 107, 85);
-  --btn-bg: rgb(206, 15, 94);
+  --btn-bg: rgb(255, 233, 242);
   --btn-body: white;
-  --tooltip-bg: black;
-  --tooltip-body: white;
+  --tooltip-bg: rgb(221, 221, 221);
+  --tooltip-body: rgb(0, 0, 0);
   --input-bg: rgb(51, 51, 51);
   --input-body: rgb(197, 197, 197);
   --header: rgb(68, 229, 247);
@@ -264,6 +264,7 @@ form > input {
 }
 
 .task {
+  isolation: isolate;
   position: relative;
   display: grid;
   grid-template-columns: 1.5rem calc(100% - 3rem) 1.5rem;
@@ -290,16 +291,16 @@ form > input {
 }
 
 .task[data-done="true"] {
-  opacity: 0.5;
-  filter: brightness(0.85);
+  opacity: 0.75;
+  filter: brightness(0.9);
 }
 
 .task[data-rerender="true"] {
-  animation: undo-task 100ms ease-in-out;
+  animation: undo-task 100ms linear;
 }
 
 .task[data-rerender="true"][data-done="true"] {
-  animation: do-task 100ms ease-in-out;
+  animation: do-task 100ms linear;
 }
 
 .task > input {

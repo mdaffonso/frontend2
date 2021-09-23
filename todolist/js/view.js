@@ -162,13 +162,13 @@ const renderTask = (task) => {
   return newTask
 }
 
-export const toggleSettings = () => {
+export const toggleSettings = (force) => {
   const matrix = {
     "true": "false",
     "false": "true"
   }
 
-  const current = _("#settings-blurb").getAttribute("data-show")
+  const current = typeof force === "boolean" ? `${!force}` : _("#settings-blurb").getAttribute("data-show")
 
   _("#settings-blurb").setAttribute("data-show", matrix[current])
   setTimeout(() => {
@@ -209,4 +209,6 @@ export const toggleTheme = () => {
   const curr = _("body").getAttribute("data-theme")
 
   _("body").setAttribute("data-theme", matrix[curr])
+
+  localStorage.setItem("theme", matrix[curr])
 }
