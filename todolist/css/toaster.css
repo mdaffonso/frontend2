@@ -1,0 +1,61 @@
+.toaster {
+  display: block;
+  position: fixed;
+  bottom: 0.5rem;
+  left: 50%;
+
+  max-width: 90vw;
+  width: max-content;
+
+  transform: translate(-50%, 0);
+
+  background: var(--tooltip-bg);
+  color: var(--tooltip-body);
+
+  padding: 1.5rem;
+}
+
+.toaster > button {
+  display: inline;
+  background: transparent;
+  color: inherit;
+  border: none;
+  text-decoration: underline;
+  font-size: inherit;
+}
+
+.toaster[data-open="false"] {
+  display: none;
+  opacity: 0;
+}
+
+.toaster[data-open="true"] {
+  animation: toast-in 150ms ease-in-out forwards;
+}
+
+.toaster[data-open="false"][data-transition="true"] {
+  display: block;
+  animation: toast-out 150ms ease-in-out forwards;
+}
+
+@keyframes toast-in {
+  from {
+    transform: translate(-50%, 1rem);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes toast-out {
+  from {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, 1rem);
+    opacity: 0;
+  }
+}

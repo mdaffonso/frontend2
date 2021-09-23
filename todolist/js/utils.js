@@ -25,7 +25,3 @@ export const makeLocalDateString = (dateString) => {
   const dateParts = dateString.split("-")
   return dateString ? `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}` : null
 }
-
-export const store = (newState) => {
-  localStorage.setItem("todo", JSON.stringify(newState))
-}

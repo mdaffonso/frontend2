@@ -1,5 +1,6 @@
-export let state = []
+export let state = JSON.parse(localStorage.getItem("todo")) || []
 export let prevState = []
+export let lastDeleted = {}
 
 export const addToState = (object) => {
   prevState = [
@@ -10,12 +11,19 @@ export const addToState = (object) => {
     ...state,
     object
   ]
+
+  return state
 }
 
 export const removeFromState = (id) => {
-  const substrId = id.substring(5)
   prevState = [...state]
-  state = state.filter(item => item.id !== substrId)
+  state = state.filter(item => item.id !== id)
+  const deleted = prevState.find(v => v.id === id)
+  if (deleted) {
+    lastDeleted = {...deleted}
+  }
+
+  return state
 }
 
 export const modifyState = (object) => {
@@ -24,9 +32,19 @@ export const modifyState = (object) => {
     ...state.filter(item => item.id !== object.id), 
     object 
   ]
+  return state
 }
 
-export const initializeState = () => {
-  state = JSON.parse(localStorage.getItem("todo")) || []
-  prevState = []
+export const restoreDeleted = () => {
+  prevState = [...state]
+  state = [
+    ...state,
+    lastDeleted
+  ]
+  lastDeleted = {}
+  return state
+}
+
+export const store = (newState) => {
+  localStorage.setItem("todo", JSON.stringify(newState))
 }

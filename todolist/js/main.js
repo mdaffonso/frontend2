@@ -1,29 +1,23 @@
-import { createUID, createMinDateString } from "./utils.js"
-import { _ } from "./viewUtils.js"
+import * as Actions from "./constants.js"
+import { createMinDateString } from "./utils.js"
+import { _, _create } from "./viewUtils.js"
 import { execute } from "./controller.js"
+import { state } from "./state.js"
+import { checkEmpty, createTaskView, toggleSettings, formSubmitHandler, toggleTheme } from "./view.js"
 
-const createTask = (description, date) => {
-  const baseId = createUID(50)
-
-  const newTask = {
-    id: baseId,
-    dueDate: date,
-    done: false,
-    description
+const init = (state) => {
+  for (let task of state) {
+    createTaskView(task)
   }
-
-  execute("create", newTask)
+  checkEmpty()
 }
 
-_("form").addEventListener("submit", (event) => {
-  event.preventDefault()
-  const description = _("#create").value
-  const dueDate = _("#due-date").value || ""
-  createTask(description, dueDate)
-})
+_("form").addEventListener("submit", formSubmitHandler)
 
-window.addEventListener("load", () => {
-  execute("init")
-})
+window.addEventListener("load", () => { init(state) })
+
+_(".btn-restore").addEventListener("click", () => { execute(Actions.RECOVER_TASK) })
+_("#settings-button").addEventListener("click", toggleSettings)
+_("#theme-button").addEventListener("click", toggleTheme)
 
 _("#due-date").setAttribute("min", createMinDateString())

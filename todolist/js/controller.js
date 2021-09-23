@@ -1,37 +1,48 @@
-import { render } from "./view.js"
-import { addToState, removeFromState, modifyState, initializeState, state, prevState } from "./state.js"
-import { triggerDeletion, triggerMutation } from "./differentiation.js"
-import { store } from "./utils.js"
+import { createTaskView, deleteTaskView, modifyTaskView, recoverTaskView, checkEmpty } from "./view.js"
+import { state, addToState, modifyState, removeFromState, restoreDeleted, store } from "./state.js"
+import { createUID, createMinDateString } from "./utils.js"
+import * as Actions from "./constants.js"
 
-const middleware = (callback, payload) => {
-  callback(payload)
-  store(state)
+export const createTask = (description, date) => {
+  const baseId = createUID(50)
+  const creationDate = createMinDateString()
+
+  const newTask = {
+    id: baseId,
+    dueDate: date,
+    creationDate,
+    done: false,
+    description
+  }
+
+  execute(Actions.CREATE_TASK, newTask)
 }
 
-const dispatch = (operation, payload) => {
-  switch (operation) {
-    case "create":
-      return middleware(addToState, payload)
+export const execute = (action, payload) => {
+  let newState
+  switch (action) {
+    case Actions.CREATE_TASK:
+      createTaskView(payload)
+      newState = addToState(payload)
+      return store(newState)
+      
+    case Actions.MODIFY_TASK:
+      modifyTaskView(payload)
+      newState = modifyState(payload)
+      return store(newState)
 
-    case "modify":
-      return middleware(modifyState, payload)
+    case Actions.DELETE_TASK:
+      deleteTaskView(payload)
+      newState = removeFromState(payload)
+      return store(newState)
 
-    case "delete":
-      return middleware(removeFromState, payload)
+    case Actions.RECOVER_TASK:
+      recoverTaskView()
+      newState = restoreDeleted()
+      return store(newState)
 
     default:
-      initializeState()
-      return
+      checkEmpty()
+      return state
   }
-}
-
-export const execute = (operation, payload) => {
-  const diff = {
-    "delete": () => triggerDeletion(state, prevState),
-    "create": () => triggerMutation(state, prevState),
-    "modify": () => triggerMutation(state, prevState),
-    "init": () => triggerMutation(state, prevState)
-  }
-  dispatch(operation, payload)
-  render(state, diff[operation]())
 }
