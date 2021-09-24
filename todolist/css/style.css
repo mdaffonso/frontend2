@@ -58,7 +58,7 @@ body {
   background: var(--bg-main);
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   isolation: isolate;
   color: var(--main-text);
 }
