@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Yaldevi:wght@200;300;500;600&display=swap');
 
 * {
+  position: relative;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -480,6 +481,33 @@ form > input {
   padding: 0 0.5rem 0.5rem;
 }
 
+[data-loading="true"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+[data-loading="true"]::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: transparent;
+  border: 0.25rem solid var(--main-text);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  animation: loader ease-in-out 1s alternate infinite;
+}
+
 @keyframes pop-in {
   from {
     transform: rotate(-45deg) scale(0);
@@ -541,6 +569,24 @@ form > input {
   to {
     transform: translateY(-10%);
     opacity: 0;
+  }
+}
+
+@keyframes loader {
+  0% {
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+  
+  75% {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 

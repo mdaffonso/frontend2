@@ -215,6 +215,7 @@ export const toggleTheme = () => {
 }
 
 export const suggestTask = () => {
+  setLoading(_("#suggest-button"), true)
   getRandomTask()
     .then(res => {
       _(`#create`).value = res
@@ -222,4 +223,10 @@ export const suggestTask = () => {
     .catch(error => {
       toaster.show(error)
     })
+    .finally(() => setLoading(_("#suggest-button"), false))
+}
+
+const setLoading = (element, bool) => {
+  _("#suggest-button").disabled = bool
+  element.setAttribute("data-loading", `${bool}`)
 }
