@@ -15,7 +15,7 @@ body[data-theme="light"] {
   --blurb-body: white;
   --shadow: rgba(0, 0, 0, 0.25);
   --check-outline: rgb(39, 231, 160);
-  --primary-accent: rgb(39, 231, 160);
+  --primary-accent: rgb(35, 197, 138);
   --btn-bg: rgb(206, 15, 94);
   --btn-body: white;
   --tooltip-bg: black;
@@ -34,28 +34,32 @@ body[data-theme="light"] {
 }
 
 body[data-theme="dark"] {
-  --bg-main: rgb(10, 10, 10);
+  --bg-main: rgb(0 0 0);
   --bg-task: rgb(36, 36, 36);
   --blurb-bg: rgb(34, 34, 34);
   --blurb-body: white;
   --shadow: rgba(105, 105, 105, 0.25);
-  --check-outline: rgb(0, 107, 85);
-  --primary-accent: rgb(0, 107, 85);
-  --btn-bg: rgb(255, 233, 242);
-  --btn-body: white;
+  --check-outline: rgb(158 158 158);
+  --primary-accent: rgb(65 178 227);
+  --btn-bg: rgb(255 255 255);
+  --btn-body: black;
   --tooltip-bg: rgb(221, 221, 221);
   --tooltip-body: rgb(0, 0, 0);
-  --input-bg: rgb(51, 51, 51);
+  --input-bg: rgb(26 26 26);
   --input-body: rgb(197, 197, 197);
   --header: rgb(116, 225, 237);
   --header-off: rgb(100, 232, 154);
   --header-off-2: rgb(203, 232, 100);
-  --bg-task-warning: rgb(68, 57, 0);
+  --bg-task-warning: rgb(54 47 10);
   --bg-task-alert: rgb(64, 12, 11);
   --sky: rgb(23, 5, 31);
   --sun-moon: rgb(254, 255, 176);
   --main-text: white;
   --error: rgb(255, 159, 159);
+}
+
+[data-theme="dark"] ::-webkit-calendar-picker-indicator {
+  filter: invert(1);
 }
 
 body {
@@ -477,7 +481,7 @@ form > input {
   padding: 0.25rem 0.5rem;
   border: 0.075rem solid var(--primary-accent);
   background: var(--primary-accent);
-  color: var(--main-text);
+  color: var(--btn-body);
   flex-grow: 0;
 }
 
