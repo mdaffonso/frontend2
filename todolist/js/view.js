@@ -219,4 +219,7 @@ export const suggestTask = () => {
     .then(res => {
       _(`#create`).value = res
     })
+    .catch(error => {
+      toaster.show(error)
+    })
 }
