@@ -61,6 +61,7 @@ body {
   overflow-x: hidden;
   isolation: isolate;
   color: var(--main-text);
+  padding-bottom: 2rem;
 }
 
 body::before,
