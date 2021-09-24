@@ -481,7 +481,7 @@ form > input {
   padding: 0 0.5rem 0.5rem;
 }
 
-[data-loading="true"]::before {
+.btn[data-loading="true"]::before {
   content: "";
   position: absolute;
   top: 0;
@@ -493,16 +493,16 @@ form > input {
   z-index: 1;
 }
 
-[data-loading="true"]::after {
+.btn[data-loading="true"]::after {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 0.4rem;
-  height: 0.4rem;
+  width: 0.5rem;
+  height: 0.5rem;
   border-radius: 50%;
   background: transparent;
-  border: 0.25rem solid var(--main-text);
+  border: 0.185rem dashed var(--main-text);
   transform: translate(-50%, -50%);
   z-index: 2;
   animation: loader ease-in-out 1s alternate infinite;
@@ -574,19 +574,19 @@ form > input {
 
 @keyframes loader {
   0% {
-    transform: translate(-50%, -50%) scale(0.85);
+    transform: translate(-50%, -50%) scale(0.85) rotate(0);
   }
 
   50% {
-    transform: translate(-50%, -50%) scale(1.15);
+    transform: translate(-50%, -50%) scale(1.15) rotate(360deg);
   }
   
   75% {
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, -50%) scale(0.9) rotate(360deg);
   }
 
   100% {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1) rotate(180deg);
   }
 }
 
