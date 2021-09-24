@@ -187,7 +187,7 @@ export const formSubmitHandler = (event) => {
   const dueDate = _("#due-date").value || ""
 
   if (!description) {
-    _("#create").after(_create({
+    _("#suggest-button").after(_create({
       tag: "p",
       textContent: "The description must have at least 10 characters...",
       classList: ["error"],
