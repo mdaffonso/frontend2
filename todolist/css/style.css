@@ -23,6 +23,8 @@ body[data-theme="light"] {
   --input-bg: white;
   --input-body: black;
   --header: rgb(8, 126, 138);
+  --header-off: rgb(0, 189, 208);
+  --header-off-2: rgb(39, 220, 123);
   --bg-task-warning: rgb(249, 255, 205);
   --bg-task-alert: rgb(255, 211, 211);
   --sky: rgb(107, 166, 255);
@@ -45,7 +47,9 @@ body[data-theme="dark"] {
   --tooltip-body: rgb(0, 0, 0);
   --input-bg: rgb(51, 51, 51);
   --input-body: rgb(197, 197, 197);
-  --header: rgb(68, 229, 247);
+  --header: rgb(116, 225, 237);
+  --header-off: rgb(100, 232, 154);
+  --header-off-2: rgb(203, 232, 100);
   --bg-task-warning: rgb(68, 57, 0);
   --bg-task-alert: rgb(64, 12, 11);
   --sky: rgb(23, 5, 31);
@@ -228,11 +232,25 @@ header {
 }
 
 .head > h1 {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Yaldevi', sans-serif;
   font-weight: 300;
   font-size: 3rem;
   line-height: 1em;
   color: var(--header);
+}
+
+.head > h1 > .p1 {
+  color: var(--header-off);
+  line-height: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.head > h1 > .p2 {
+  color: var(--header-off-2);
+  line-height: inherit;
+  font-size: inherit;
+  font-family: inherit;
 }
 
 
