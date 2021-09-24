@@ -525,7 +525,7 @@ form > input {
   height: 0.5rem;
   border-radius: 50%;
   background: transparent;
-  border: 0.185rem dashed var(--main-text);
+  border: 0.185rem dashed var(--btn-body);
   transform: translate(-50%, -50%);
   z-index: 2;
   animation: loader ease-in-out 1s alternate infinite;
