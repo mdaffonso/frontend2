@@ -5,7 +5,7 @@ Repositório criado para os projetos desenvolvidos na disciplina de front-end 2 
 
 Alternativamente, você pode visitar diretamente os links internos:
 
-+ [Lista de Tarefas](https://mdaffonso.github.io/frontend2/todolist/)
++ [Todo-be-doo!](https://mdaffonso.github.io/frontend2/todolist/)
 + [Memory Cards](https://mdaffonso.github.io/frontend2/memorycards/)
 + [Wingo do Bill](https://mdaffonso.github.io/frontend2/wingodobill/)
 + [MyNotes](https://mynotes-mda.netlify.app/)

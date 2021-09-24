@@ -4,6 +4,7 @@ import { execute, createTask } from "./controller.js"
 import * as Actions from "./constants.js"
 import toaster from "./toaster.js"
 import { lastDeleted } from "./state.js"
+import { getRandomTask } from "./randomTask.js"
 
 export const checkEmpty = () => {
   const listOfTasks = document.querySelectorAll(".task")
@@ -20,7 +21,7 @@ export const deleteTaskView = (id) => {
   _(".btn-restore").setAttribute("data-show", "true")
   _(".btn-restore").disabled = false
 
-  toaster.show("Tarefa removida com sucesso. <button id='recover'>Recuperar tarefa removida.</button>")
+  toaster.show("Task removed successfully. <button id='recover'>Undo.</button>")
   _("#recover").addEventListener("click", () => {
     _("#recover").disabled = true
     execute(Actions.RECOVER_TASK)
@@ -103,8 +104,8 @@ const renderTask = (task) => {
     tag: "button",
     textContent: "×",
     attributes: [
-      { key: "aria-label", value: "excluir tarefa" },
-      { key: "data-tooltip", value: "excluir tarefa" }
+      { key: "aria-label", value: "delete task" },
+      { key: "data-tooltip", value: "delete task" }
     ],
     events: [
       {
@@ -188,7 +189,7 @@ export const formSubmitHandler = (event) => {
   if (!description) {
     _("#create").after(_create({
       tag: "p",
-      textContent: "A descrição deve ter, no mínimo, 10 caracteres...",
+      textContent: "The description must have at least 10 characters...",
       classList: ["error"],
       id: "error"
     }))
@@ -211,4 +212,11 @@ export const toggleTheme = () => {
   _("body").setAttribute("data-theme", matrix[curr])
 
   localStorage.setItem("theme", matrix[curr])
+}
+
+export const suggestTask = () => {
+  getRandomTask()
+    .then(res => {
+      _(`#create`).value = res
+    })
 }

@@ -21,5 +21,8 @@ O corpo do site reúne os cards ordenadamente em uma matriz adaptável.
 
 Os cards são armazenados em uma matriz de objetos em formato JSON no armazenamento local do navegador.
 
+O botão "suggest" busca informações na [Bored API](https://www.boredapi.com/api/activity) 
+e preenche o input da descrição da tarefa.
+
 ## Link
 [Veja a Lista de Tarefas no Github Pages](https://mdaffonso.github.io/frontend2/todolist)

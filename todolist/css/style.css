@@ -259,10 +259,6 @@ form > input {
   color: var(--input-body);
 }
 
-#create {
-  grid-column: 1 / 3;
-}
-
 .task {
   isolation: isolate;
   position: relative;
@@ -450,11 +446,11 @@ form > input {
 }
 
 .date.due:not(:empty)::before {
-  content: "concluir até ";
+  content: "finish until ";
 }
 
 .date.creation::before {
-  content: "criada em ";
+  content: "created on ";
 }
 
 .btn {

@@ -3,7 +3,7 @@ import { createMinDateString } from "./utils.js"
 import { _, _create } from "./viewUtils.js"
 import { execute } from "./controller.js"
 import { state } from "./state.js"
-import { checkEmpty, createTaskView, toggleSettings, formSubmitHandler, toggleTheme } from "./view.js"
+import { checkEmpty, createTaskView, toggleSettings, formSubmitHandler, toggleTheme, suggestTask } from "./view.js"
 
 const init = (state) => {
   for (let task of state) {
@@ -24,5 +24,6 @@ _("#settings-button").addEventListener("click", (event) => {
 })
 _("#settings-blurb").addEventListener("click", (event) => event.stopPropagation())
 _("#theme-button").addEventListener("click", toggleTheme)
+_("#suggest-button").addEventListener("click", suggestTask)
 
 _("#due-date").setAttribute("min", createMinDateString())
