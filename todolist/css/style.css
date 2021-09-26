@@ -65,6 +65,8 @@ body[data-theme="dark"] {
 body {
   background: var(--bg-main);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   position: relative;
   overflow-x: hidden;
   isolation: isolate;
@@ -101,14 +103,14 @@ header, main {
 
 header {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column;
   gap: 2rem;
   padding-top: 2rem;
 }
 
 .head {
   display: grid;
-  grid-template-columns: 1fr 4rem;
+  grid-template-columns: max-content 4rem;
   align-items: center;
   position: relative;
   max-width: 40ch;
@@ -125,7 +127,7 @@ header {
   padding: 0.5rem 1rem 0;
   border: none;
   background: transparent;
-  align-self: flex-end;
+  align-self: center;
   max-width: clamp(2.5rem, 3vw, 4rem);
 }
 
@@ -239,7 +241,7 @@ header {
 .head > h1 {
   font-family: 'Yaldevi', sans-serif;
   font-weight: 300;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 7vw, 3rem);
   line-height: 1em;
   color: var(--header);
   overflow-wrap: break-word;
