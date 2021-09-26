@@ -8,7 +8,7 @@
   font-family: 'Yaldevi', sans-serif;
 }
 
-body[data-theme="light"] {
+body {
   --bg-main: rgb(248, 248, 248);
   --bg-task: white;
   --blurb-bg: rgb(37, 37, 37);
