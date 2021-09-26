@@ -109,6 +109,7 @@ header {
 .head {
   display: grid;
   grid-template-columns: 1fr 4rem;
+  align-items: center;
   position: relative;
   max-width: 40ch;
 }
@@ -125,7 +126,7 @@ header {
   border: none;
   background: transparent;
   align-self: flex-end;
-  max-width: 4rem;
+  max-width: clamp(2.5rem, 3vw, 4rem);
 }
 
 #settings-blurb {
@@ -238,9 +239,10 @@ header {
 .head > h1 {
   font-family: 'Yaldevi', sans-serif;
   font-weight: 300;
-  font-size: 3rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1em;
   color: var(--header);
+  overflow-wrap: break-word;
 }
 
 .head > h1 > .p1 {
@@ -273,6 +275,7 @@ form {
   grid-template-columns: 3fr 1fr;
   gap: 0.35rem;
   max-width: 50ch;
+  width: calc(100vw - 0.5rem);
 }
 
 form > input {
