@@ -209,9 +209,9 @@ export const toggleTheme = () => {
 
   const curr = _("body").getAttribute("data-theme")
 
-  _("body").setAttribute("data-theme", matrix[curr])
+  _("body").setAttribute("data-theme", matrix[curr] || "light")
 
-  localStorage.setItem("theme", matrix[curr])
+  localStorage.setItem("theme", matrix[curr] || "light")
 }
 
 export const suggestTask = () => {

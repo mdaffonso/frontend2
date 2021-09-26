@@ -446,8 +446,8 @@ const toggleTheme = () => {
     "dark": "contrast",
     "contrast": "light"
   }
-  document.body.setAttribute("data-theme", map[currentTheme])
-  localStorage.setItem("theme", map[currentTheme])
+  document.body.setAttribute("data-theme", map[currentTheme] || "light")
+  localStorage.setItem("theme", map[currentTheme] || "light")
 }
 
 // function:  mapKeys
