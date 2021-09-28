@@ -108,6 +108,14 @@ header {
   padding-top: 2rem;
 }
 
+a {
+  color: inherit;
+  border: none;
+  text-decoration: underline;
+  text-align: left;
+  font-size: inherit;
+}
+
 .head {
   display: grid;
   grid-template-columns: max-content 4rem;
@@ -136,7 +144,7 @@ header {
   display: flex;
   flex-direction: column;
   top: calc(100% + 1rem);
-  right: 0;
+  right: -2.75rem;
   background: var(--blurb-bg);
   color: var(--blurb-body);
   padding: 2rem;
@@ -146,6 +154,7 @@ header {
 }
 
 #settings-blurb::before {
+  display: none;
   content: "";
   position: absolute;
   width: 0;
@@ -226,6 +235,7 @@ header {
   color: inherit;
   border: none;
   text-decoration: underline;
+  text-align: left;
   font-size: inherit;
   margin-top: 1rem;
 }
@@ -536,6 +546,11 @@ form > input {
   animation: loader ease-in-out 1s alternate infinite;
 }
 
+.info {
+  font-size: 0.75rem;
+  margin-top: 2rem;
+}
+
 @keyframes pop-in {
   from {
     transform: rotate(-45deg) scale(0);
@@ -621,5 +636,13 @@ form > input {
 @media (min-width: 600px) {
   main, header {
     padding: 4rem clamp(2rem, 20vw, 15rem) 0.25rem;
+  }
+
+  #settings-blurb {
+    right: 0;
+  }
+
+  #settings-blurb::before {
+    display: block;
   }
 }
