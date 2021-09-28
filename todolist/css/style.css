@@ -296,7 +296,7 @@ form > input {
   background: var(--bg-task);
   padding: 1rem;
   border-radius: 0.25rem;
-  box-shadow: 0 0.25rem 1rem -0.5rem var(--shadow);
+  box-shadow: 0 0.25rem 0.5rem -0.4rem var(--shadow);
   margin: 0;
   transition: opacity 200ms ease-in-out;
   overflow-wrap: break-word;
