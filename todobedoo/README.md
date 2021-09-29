@@ -25,4 +25,4 @@ O botão "suggest" busca informações na [Bored API](https://www.boredapi.com/a
 e preenche o input da descrição da tarefa.
 
 ## Link
-[Veja o Todobedoo! no Github Pages](https://mdaffonso.github.io/frontend2/todolist)
+[Veja o Todobedoo! no Github Pages](https://mdaffonso.github.io/frontend2/todobedoo)
